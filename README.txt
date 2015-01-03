@@ -1,0 +1,1 @@
+This repository is for FRC Team 1885's 2015 HMI and telemetry code. Telemetry code may eventually become a separate repository. 
