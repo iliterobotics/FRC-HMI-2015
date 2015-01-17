@@ -1,0 +1,18 @@
+.background
+{
+	-fx-background-color: #2b2727;
+} 
+
+.label
+{
+	-fx-text-fill: #fff;
+	-fx-font
+}
+
+/*	HEX			RGB
+ *  #ffffff 	(255,255,255)
+	#676565 	(103,101,101)
+	#474444 	(71,68,68)
+	#2b2727 	(43,39,39)
+	#000000 	(0,0,0)
+ */
