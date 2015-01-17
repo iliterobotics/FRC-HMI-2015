@@ -5,6 +5,7 @@ public enum ETelemetryType
   ANALOG_IN,
   DIGITAL_IN,
   PWM_OUT,
+  ANALOG_OUT,
   PNEUMATIC(Boolean.class),
   RELAY_OUT(Integer.class);
   
