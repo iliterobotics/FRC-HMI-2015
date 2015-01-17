@@ -1,0 +1,10 @@
+.root{
+	-fx-font-size: 16pt;
+    -fx-font-family: null;
+    -fx-base: rgb(132, 145, 47);
+    -fx-background: rgb(225, 228, 203);
+}
+.drop-button{
+	-fx-background: rgb(50, 50, 50);
+	-fx-spacing: 2;
+}
