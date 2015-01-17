@@ -9,7 +9,7 @@ public class UIBuilder
 	public static void generateUI(Stage stage)
 	{
 		Scene scene=new Scene(new Group());
-		stage.setTitle("Best UI Bulder EVAAAAAAAH");
+		stage.setTitle("RECYCLE RUSH 2015 UI");
 		stage.setWidth(800);
 		stage.setHeight(800);
 		VBox nodeList=new VBox();
