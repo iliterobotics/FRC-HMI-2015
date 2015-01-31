@@ -9,11 +9,15 @@ public class UIBuilder
 	public static void generateUI(Stage stage)
 	{
 		Scene scene=new Scene(new Group());
+		scene.getStylesheets().add("src/or/ilite/ui/skins/darcula.css");
+		
 		stage.setTitle("RECYCLE RUSH 2015 UI");
 		stage.setWidth(800);
 		stage.setHeight(800);
+		
 		VBox nodeList=new VBox();
 		((Group) scene.getRoot()).getChildren().add(nodeList);
+		
 		stage.setScene(scene);
 		stage.show();
 	}
