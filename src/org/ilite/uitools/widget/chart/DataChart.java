@@ -19,7 +19,6 @@ public class DataChart extends LineChart<Number, Number>{
 		yAxis.setLabel("Value");
 		series = new XYChart.Series();
 		getData().add(series);
-		//this.getStyleClass().add("chart-series-area-fill");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

@@ -4,9 +4,9 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.SkinBase;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -49,16 +49,17 @@ public class NotificationSkin extends SkinBase<Notification>{
 		xout.setText("X");
 		xout.getStyleClass().add("button1");
 		StackPane.setAlignment(xout, Pos.TOP_RIGHT);
-		xout.setOnAction(new EventHandler<ActionEvent>() {
-	            @Override public void handle(ActionEvent e) {
-	                fin.stop();
+		xout.setOnMousePressed(new EventHandler<MouseEvent>() {
+	         	@Override
+				public void handle(MouseEvent arg0) {
+					fin.stop();
 	                ft.stop();
 	                fadeOut();
-	            }
+				}
 	        });
 		Rectangle backdrop  = new Rectangle();
 		backdrop.setWidth(20 + text.getLayoutBounds().getWidth() + 20);
-		backdrop.setHeight(50);
+		backdrop.setHeight(30);
 		backdrop.setFill(Color.web("#A0A0A0"));
 		
 		contents.getChildren().addAll(backdrop, text, xout);
@@ -93,8 +94,7 @@ public class NotificationSkin extends SkinBase<Notification>{
 		
 		fout.setOnFinished(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-            	Group group = (Group) getSkinnable().getParent();
-                group.getChildren().remove(getSkinnable());
+            	//TODO make the thing happen
             }
         });
 	}
