@@ -1,10 +1,23 @@
 .root{
-	-fx-font-size: 16pt;
-    -fx-font-family: null;
-    -fx-base: rgb(132, 145, 47);
-    -fx-background: rgb(225, 228, 203);
+	-fx-text-fill: #FF00FF;
 }
-.drop-button{
-	-fx-background: rgb(50, 50, 50);
-	-fx-spacing: 2;
+.notification.background{
+	-fx-background-color: #646464;
+	-fx-background-radius: 1000;
+}
+.button1{
+	-fx-text-fill: #AAAAAA;
+    -fx-background-color: #FF0000;
+    -fx-padding: 5;
+}
+
+.gauge{
+	-fx-stroke-width: 5;
+	-fx-fill: #606060;
+	-fx-stroke: #C0C0C0;
+}
+
+.arrow{
+	-fx-background-color : #000000;
+    -fx-stroke           : transparent;
 }
