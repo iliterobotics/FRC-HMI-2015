@@ -4,7 +4,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.SkinBase;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
@@ -49,8 +48,7 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 		backIcon.setArcWidth(10);
 		iconLight = new Circle(5);
 		StackPane.setAlignment(iconLight, Pos.TOP_RIGHT);
-		
-		
+
 		contents.getChildren().addAll(backIcon, frontIcon, iconLight);
 		getChildren().addAll(contents);
 		setActivated(getSkinnable().isActivated());
