@@ -1,5 +1,7 @@
 package org.ilite.uitools.widget.gauge;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.EventHandler;
 import javafx.scene.control.Control;
 import javafx.scene.control.Skin;
@@ -9,14 +11,26 @@ public class Gauge extends Control {
 
 	
 	double value;
+	DoubleProperty valueProperty;
 	double size;
+	DoubleProperty sizeProperty;
 	double max;
+	DoubleProperty maxProperty;
 	double min;
+	DoubleProperty minProperty;
 
 	public Gauge() {
 		size = 200;
+		sizeProperty = new SimpleDoubleProperty(size);
+		
 		max = 1000;
+		maxProperty = new SimpleDoubleProperty(max);
+		
 		min = 0;
+		minProperty = new SimpleDoubleProperty(min);
+		
+		valueProperty = new SimpleDoubleProperty(0);
+
 		init();
 	}
 
@@ -25,8 +39,8 @@ public class Gauge extends Control {
 
 			@Override
 			public void handle(MouseEvent arg0) {
-				setValue(value + 50);
-				System.out.println(value);
+				setValue(valueProperty.get() + 50);
+				System.out.println(valueProperty.get());
 			}
 
 		});
@@ -42,25 +56,42 @@ public class Gauge extends Control {
 	}
 
 	public double getMinValue() {
-		return min;
+		return minProperty.get();
 	}
 
 	public double getValue() {
-		return value;
+		return valueProperty.get();
 	}
 
 	public double getMaxValue() {
-		return max;
+		return maxProperty.get();
 	}
 	
 	public double getSize(){
-		return size;
+		return sizeProperty.get();
+	}
+	
+	public DoubleProperty getMinValueProperty() {
+		return minProperty;
 	}
 
-	// ***TEMPORARY***
+	public DoubleProperty getValueProperty() {
+		return valueProperty;
+	}
+
+	public DoubleProperty getMaxValueProperty() {
+		return maxProperty;
+	}
+	
+	public DoubleProperty getSizeProperty(){
+		return sizeProperty;
+	}
 	public void setValue(double d) {
-		value = clamp(min, max, d);
-		((GaugeSkin) getSkin()).refreshArrow();
+		valueProperty.set(clamp(min, max, d));
+	}
+	
+	public void setSize(double d){
+		sizeProperty.set(d);
 	}
 	
 	private double clamp(final double MIN_VALUE, final double MAX_VALUE,

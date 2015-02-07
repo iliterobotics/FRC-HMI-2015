@@ -21,6 +21,7 @@ public class GaugeSkin extends SkinBase<Gauge> {
 	protected GaugeSkin(Gauge control) {
 		super(control);
 		initGraphics();
+		addListeners();
 	}
 
 	private void initGraphics() {
@@ -36,10 +37,12 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		arrow.getStyleClass().setAll("arrow");
 		arrow.getPoints().addAll(2.0, 0.0, 0.0, -20.0, -2.0, 0.0);
 		arrow.getTransforms().add(arrowRotate);
-		resize();
 		getChildren().addAll(top, arrow);
 		
 		rotationAnimationTimeline = new Timeline();
+		
+		resize();
+		refreshArrow();
 	}
 
 	public void resize() {
@@ -65,6 +68,12 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		
 		rotationAnimationTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(300), new KeyValue(arrowRotate.angleProperty(), newAngle)));
 		rotationAnimationTimeline.play();
+	}
+	
+	private void addListeners(){
+		getSkinnable().getValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getSizeProperty().addListener(observable -> resize());
+		
 	}
 
 }
