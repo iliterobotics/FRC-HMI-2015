@@ -7,6 +7,7 @@ import javafx.scene.control.SkinBase;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -15,6 +16,9 @@ public class GaugeSkin extends SkinBase<Gauge> {
 	private Polygon arrow;
 	private Arc top;
 	private Rotate arrowRotate;
+	
+	private Text min;
+	private Text max;
 	
 	private Timeline rotationAnimationTimeline;
 
@@ -37,7 +41,9 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		arrow.getStyleClass().setAll("arrow");
 		arrow.getPoints().addAll(2.0, 0.0, 0.0, -20.0, -2.0, 0.0);
 		arrow.getTransforms().add(arrowRotate);
-		getChildren().addAll(top, arrow);
+		
+		min = new Text(getSkinnable().valueProperty.get() + "");
+		getChildren().addAll(top, arrow, min);
 		
 		rotationAnimationTimeline = new Timeline();
 		
@@ -64,14 +70,19 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		double min = getSkinnable().getMinValue();
 		double current = getSkinnable().getValue();
 		
-		double newAngle = (current / (max - min)) * 180 - 90;
+		double newAngle =  (current / (max - min)) * 180 - 90;
 		
 		rotationAnimationTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(300), new KeyValue(arrowRotate.angleProperty(), newAngle)));
 		rotationAnimationTimeline.play();
+		
+		String currentString = current + "";
+		this.min.setText(currentString.substring(0, currentString.length() > 5? 5 : currentString.length()));
 	}
 	
 	private void addListeners(){
 		getSkinnable().getValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getMinValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getMaxValueProperty().addListener(observable -> refreshArrow());
 		getSkinnable().getSizeProperty().addListener(observable -> resize());
 		
 	}

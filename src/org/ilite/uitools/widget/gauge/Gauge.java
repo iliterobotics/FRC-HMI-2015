@@ -19,27 +19,29 @@ public class Gauge extends Control {
 	double min;
 	DoubleProperty minProperty;
 
-	public Gauge() {
-		size = 200;
+	public Gauge(DoubleProperty valueProp, int size, double min, double max) {
+		this.size = size;
 		sizeProperty = new SimpleDoubleProperty(size);
 		
-		max = 1000;
+		this.max = max;
 		maxProperty = new SimpleDoubleProperty(max);
 		
-		min = 0;
+		this.min = min;
 		minProperty = new SimpleDoubleProperty(min);
 		
-		valueProperty = new SimpleDoubleProperty(0);
+		valueProperty = new SimpleDoubleProperty(min);
+		
+		valueProp.addListener(observable -> setValue(valueProp.get()));
 
 		init();
 	}
 
 	private void init() {
-		this.setOnMousePressed(new EventHandler<MouseEvent>() {
+		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent arg0) {
-				setValue(valueProperty.get() + 50);
+				setValue( valueProperty.get() + 0.1 );
 				System.out.println(valueProperty.get());
 			}
 
@@ -98,8 +100,8 @@ public class Gauge extends Control {
 			final double VALUE) {
 		if (VALUE < MIN_VALUE)
 			return MIN_VALUE;
-		if (VALUE > MAX_VALUE)
+		else if (VALUE > MAX_VALUE)
 			return MAX_VALUE;
-		return VALUE;
+		else return VALUE;
 	}
 }

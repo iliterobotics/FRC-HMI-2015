@@ -3,36 +3,37 @@ package org.ilite.ui.y2015;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import org.ilite.uitools.managers.Manager;
 import org.ilite.uitools.widget.toggle.ToggleButton;
 
 public class WidgetPanel extends Pane{
+
+	private Manager manager;
+	private int height;
 	
-	private String title;
-	private String description;
+	public WidgetPanel(Manager m){
+		manager = m;
+	}
 	
-	public WidgetPanel(){
+	public void reMake(int width, int height){
+		getChildren().removeAll(getChildren());
+		
 		VBox main = new VBox();
 		BorderPane top = new BorderPane();
-		GridPane widgetBox = new GridPane();
-		Text titleText = new Text();
-		titleText.setText(title);
+		HBox widgetBox = new HBox();
+		Text titleText = new Text(manager.getName());
 		titleText.setFont(new Font(null, height >> 2));
-		Text descriptionText = new Text();
-		descriptionText.setText(description);
+		Text descriptionText = new Text(manager.getDesc());
 		descriptionText.setFont(new Font(null, height >> 2));
-		ImageView pinImg = new ImageView(
-				"/org/ilite/uitools/widget/img/PinImage.png");
+
 		ImageView removeImg = new ImageView(
 				"/org/ilite/uitools/widget/img/RemoveImage.png");
-		pinImg.fitHeightProperty().set(height >> 2);
-		pinImg.fitWidthProperty().set(height >> 2);
 		removeImg.fitHeightProperty().set(height >> 2);
 		removeImg.fitWidthProperty().set(height >> 2);
 		Button remove = new Button("", removeImg);
@@ -40,27 +41,27 @@ public class WidgetPanel extends Pane{
 		HBox buttons = new HBox();
 		buttons.getChildren().addAll(pin, remove);
 
-		widgetBox.setMinHeight((height >> 4) * 5);
-		widgetBox.setMinWidth(width);
-		widgetBox.setVgap(5);
-		widgetBox.setHgap(5);
-		if (widgets != null) {
-			for (int i = 0; i < widgets.length; i++) {
-				widgetBox.add(widgets[i], i % 3, i / 3);
-			}
-		}
+		widgetBox.setSpacing(5);
 
 		top.setCenter(titleText);
 		top.setRight(buttons);
 		
 		main.setMaxSize(width, height);
 
-		main.getStyleClass().setAll(DEFAULT);
-		top.getStyleClass().setAll(DEFAULT);
-		widgetBox.getStyleClass().setAll(DEFAULT);
+		main.getStyleClass().setAll(UIManager.DEFAULT);
+		top.getStyleClass().setAll(UIManager.DEFAULT);
+		widgetBox.getStyleClass().setAll(UIManager.DEFAULT);
 		main.getChildren().addAll(top, widgetBox, descriptionText);
 
+		this.height = height;
+
 		getChildren().add(main);
+		
+		buildWidgets(widgetBox);
+	}
+	
+	public void buildWidgets(HBox box){
+		box.getChildren().addAll(manager.buildWidgets(height));
 	}
 
 }
