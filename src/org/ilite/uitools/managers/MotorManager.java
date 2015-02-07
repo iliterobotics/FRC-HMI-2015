@@ -20,4 +20,9 @@ public class MotorManager extends Manager
 	{
 		data.setValue(newData);
 	}
+	
+	public void buildWidget()
+	{
+		
+	}
 }
