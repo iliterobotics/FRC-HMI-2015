@@ -52,9 +52,9 @@ public class SideBar extends VBox{
 		}
 	}
 	
-	private void updatePanelStatus(Manager manager, boolean active){
+	private void updatePanelStatus(Manager manager, boolean active, ToggleButton button){
 		if(active)
-			master.addWidgetPanel(manager);
+			button.forceChange(master.addWidgetPanel(manager));
 		else
 			master.removeWidgetPanel(manager);
 	}
