@@ -1,4 +1,10 @@
-.mainBorderPane{
+.mainBorderPane
+{
 	-fx-background-color: dimgray;
 	-fx-border-color: black;
+<<<<<<< HEAD
+	-fx-padding: 0.0pt;
+	-fx-border-radius: 0.0pt; 
+=======
+>>>>>>> 1bdb5335d2951eefa71e32741016dc5045d99f58
 }

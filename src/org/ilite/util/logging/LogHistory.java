@@ -1,10 +1,10 @@
 package org.ilite.util.logging;
 
-import org.ilite.util.lang.IUpdate;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.ilite.util.lang.IUpdate;
 
 public class LogHistory implements IUpdate<LogOutput>{
 	private LinkedList<LogOutput> mHistory = new LinkedList<LogOutput>();

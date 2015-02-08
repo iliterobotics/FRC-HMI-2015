@@ -1,10 +1,10 @@
 package org.ilite.telemetry.data;
 
-import org.ilite.util.lang.Data;
-import org.ilite.util.lang.IUpdate;
-
 import java.awt.Component;
 import java.util.List;
+
+import org.ilite.util.lang.Data;
+import org.ilite.util.lang.IUpdate;
 
 /**
  * @author JesseK

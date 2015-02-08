@@ -16,56 +16,69 @@ import org.ilite.util.gui.builder.components.JLabelRenderer;
 @RenderingVisitorClassName("org.ilite.util.gui.builder.DefaultVisitor")
 public enum EData2015 implements IDisplayBuilderEnum
 {
-	DIGIN1_ENC1A(1, DIGITAL_IN, "Encoder 1 Channel A"),
-	DIGIN2_ENC1B(2, DIGITAL_IN, "Encoder 1 Channel B"),
-	DIGIN3_ENC2A(3, DIGITAL_IN, "Encoder 2 Channel A"),
-	DIGIN4_ENC2B(4, DIGITAL_IN, "Encoder 2 Channel B"),
-	DIGIN5(5, DIGITAL_IN),
-	DIGIN6(6, DIGITAL_IN),
-	DIGIN7(7, DIGITAL_IN),
-	DIGIN8(8, DIGITAL_IN),
-	DIGIN9(9, DIGITAL_IN),
-	DIGIN10(10, DIGITAL_IN),
+	DIGIN1_ENC1A(0, DIGITAL_IN, "Encoder 1 Channel A"),
+	DIGIN2_ENC1B(1, DIGITAL_IN, "Encoder 1 Channel B"),
+	DIGIN3_ENC2A(2, DIGITAL_IN, "Encoder 2 Channel A"),
+	DIGIN4_ENC2B(3, DIGITAL_IN, "Encoder 2 Channel B"),
+	DIGIN5_ENC3A(4, DIGITAL_IN, "Encoder 3 Channel A"),
+	DIGIN6_ENC3B(5, DIGITAL_IN),
+	DIGIN7(6, DIGITAL_IN),
+	DIGIN8(7, DIGITAL_IN),
+	DIGIN9(8, DIGITAL_IN),
+	DIGIN10(9, DIGITAL_IN),
+	DIGIN11(10, DIGITAL_IN),
+	DIGIN12(11, DIGITAL_IN),
+	DIGIN13(12, DIGITAL_IN),
+	DIGIN14(13, DIGITAL_IN),
+	DIGIN15(14, DIGITAL_IN),
+	DIGIN16(15, DIGITAL_IN),
+	DIGIN17(16, DIGITAL_IN),
+	DIGIN18(17, DIGITAL_IN),
+	DIGIN19(18, DIGITAL_IN),
+	DIGIN20(19, DIGITAL_IN),
 
-	PWM_RIGHT_DRIVETRAIN_1(1, PWM_OUT, "Right Drive Train 1"),
-	PWM_RIGHT_DRIVETRAIN_2(2, PWM_OUT, "Right Drive Train 2"),
-	PWM_LEFT_DRIVETRAIN_1(3, PWM_OUT, "Left Drive Train 1"),
-	PWM_LEFT_DRIVETRAIN_2(4, PWM_OUT, "Left Drive Train 2"),
-	PWM5(5, PWM_OUT),
-	PWM6(6, PWM_OUT),
-	PWM7(7, PWM_OUT),
-	PWM8(8, PWM_OUT),
-	PWM9(9, PWM_OUT),
-	PWM10(10, PWM_OUT),
+	DIGOUT1_PWM_RIGHT_DRIVETRAIN_1(10, PWM_OUT, "Right Drive Train 1"),
+	DIGOUT2_PWM_RIGHT_DRIVETRAIN_2(11, PWM_OUT, "Right Drive Train 2"),
+	DIGOUT3_PWM_LEFT_DRIVETRAIN_1(12, PWM_OUT, "Left Drive Train 1"),
+	DIGOUT4_PWM_LEFT_DRIVETRAIN_2(13, PWM_OUT, "Left Drive Train 2"),
+	DIGOUT5_PWM5(14, PWM_OUT),
+	DIGOUT6_PWM6(15, PWM_OUT),
+	DIGOUT7_PWM7(16, PWM_OUT),
+	DIGOUT8_PWM8(17, PWM_OUT),
+	DIGOUT9_PWM9(18, PWM_OUT),
+	DIGOUT10_PWM10(19, PWM_OUT),
 
-	PNEU_P1(1, PNEUMATIC),
-	PNEU_P2(2, PNEUMATIC),
-	PNEU_P3(3, PNEUMATIC),
-	PNEU_P4(4, PNEUMATIC),
-	PNEU_P5(5, PNEUMATIC),
-	PNEU_P6(6, PNEUMATIC),
-	PNEU_P7(7, PNEUMATIC),
-	PNEU_P8(8, PNEUMATIC),
+	SOL_PNEU_P1(0, PNEUMATIC),
+	SOL_PNEU_P2(1, PNEUMATIC),
+	SOL_PNEU_P3(2, PNEUMATIC),
+	SOL_PNEU_P4(3, PNEUMATIC),
+	SOL_PNEU_P5(4, PNEUMATIC),
+	SOL_PNEU_P6(5, PNEUMATIC),
+	SOL_PNEU_P7(6, PNEUMATIC),
+	SOL_PNEU_P8(7, PNEUMATIC),
 	
-	ANAIN1(1, ANALOG_IN),
-	ANAIN2(2, ANALOG_IN),
-	ANAIN3(3, ANALOG_IN),
-	ANAIN4(4, ANALOG_IN),
-	ANAIN5(5, ANALOG_IN),
-	ANAIN6(6, ANALOG_IN),
-	ANAIN7(7, ANALOG_IN),
-	ANAIN8(8, ANALOG_IN),
+	ANAIN1(0, ANALOG_IN),
+	ANAIN2(1, ANALOG_IN),
+	ANAIN3(2, ANALOG_IN),
+	ANAIN4(3, ANALOG_IN),
+	ANAIN5(4, ANALOG_IN),
+	ANAIN6(5, ANALOG_IN),
+	ANAIN7(6, ANALOG_IN),
+	ANAIN8(7, ANALOG_IN),
+	ANAIN9(8, ANALOG_IN),
+	ANAIN10(9, ANALOG_IN),
 	
 	ANAOUT1(1, ANALOG_OUT),
 	ANAOUT2(2, ANALOG_OUT),
 	
-	RELAY1(1, RELAY_OUT),
-	RELAY2(2, RELAY_OUT),
-	RELAY3(3, RELAY_OUT),
-	RELAY4(4, RELAY_OUT)	
-	;
+	RELAY1(0, RELAY_OUT),
+	RELAY2(1, RELAY_OUT),
+	RELAY3(2, RELAY_OUT),
+	RELAY4(3, RELAY_OUT);	
 
-	public ETelemetryType getTelemetryType(){ return mType; }
+	public ETelemetryType getTelemetryType()	{ return mType; }
+	
+	
 	private ETelemetryType mType;
 	private String mDisplayLabel;
 	private int mPortNumber;
@@ -88,6 +101,11 @@ public enum EData2015 implements IDisplayBuilderEnum
 		mRenderingClass = pRenderingClass;
 		mDisplayLabel = pDisplayLabel;
 		mPortNumber = pPortNumber;
+	}
+	
+	public ETelemetryType getType()
+	{
+		return mType;
 	}
 
 	public int getPortNumber()

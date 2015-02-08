@@ -1,7 +1,5 @@
 package org.ilite.util.lang.reflection;
 
-import org.ilite.util.gui.SimpleDataPrinter;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.lang.reflect.Field;
@@ -16,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JFrame;
+
+import org.ilite.util.gui.SimpleDataPrinter;
 
 public class DataStructureReader<Data>
 {

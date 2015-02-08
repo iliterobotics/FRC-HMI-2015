@@ -1,16 +1,11 @@
 package org.ilite.util.platform;
 
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.io.File;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Properties;
 
-import org.opencv.core.Core;
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class PlatformUtils
 {

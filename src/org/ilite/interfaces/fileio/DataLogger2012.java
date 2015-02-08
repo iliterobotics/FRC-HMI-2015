@@ -1,13 +1,13 @@
 package org.ilite.interfaces.fileio;
 
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class DataLogger2012 {
 	private ILog mLog = Logger.createLog(DataLogger2012.class);

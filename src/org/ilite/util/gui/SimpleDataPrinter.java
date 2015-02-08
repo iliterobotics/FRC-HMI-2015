@@ -4,7 +4,6 @@ import static javax.swing.SpringLayout.EAST;
 import static javax.swing.SpringLayout.NORTH;
 import static javax.swing.SpringLayout.SOUTH;
 import static javax.swing.SpringLayout.WEST;
-import org.ilite.util.lang.reflection.DataStructureReader;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -20,6 +19,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
 import javax.swing.SpringLayout;
+
+import org.ilite.util.lang.reflection.DataStructureReader;
 
 public class SimpleDataPrinter
 {

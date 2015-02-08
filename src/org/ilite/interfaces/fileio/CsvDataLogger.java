@@ -1,14 +1,14 @@
 package org.ilite.interfaces.fileio;
 
-import org.ilite.util.lang.ICsvData;
-import org.ilite.util.lang.IUpdate;
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import org.ilite.util.lang.ICsvData;
+import org.ilite.util.lang.IUpdate;
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class CsvDataLogger <Data extends ICsvData>
 implements IUpdate<Data>

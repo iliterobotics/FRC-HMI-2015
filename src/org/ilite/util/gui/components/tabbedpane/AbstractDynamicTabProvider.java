@@ -1,13 +1,13 @@
 package org.ilite.util.gui.components.tabbedpane;
 
-import org.ilite.util.lang.IUpdate;
-
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import org.ilite.util.lang.IUpdate;
 
 public abstract class AbstractDynamicTabProvider implements IDynamicTabProvider{
 	private IUpdate<AddTabData> mAddTabDataListener = null;

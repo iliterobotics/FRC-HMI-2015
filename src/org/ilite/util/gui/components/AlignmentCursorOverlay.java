@@ -1,8 +1,5 @@
 package org.ilite.util.gui.components;
 
-import org.ilite.util.gui.components.layer.AbstractLayer;
-import org.ilite.util.gui.components.layer.EDrawPriority;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,6 +9,9 @@ import java.awt.Stroke;
 
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+
+import org.ilite.util.gui.components.layer.AbstractLayer;
+import org.ilite.util.gui.components.layer.EDrawPriority;
 
 public class AlignmentCursorOverlay extends AbstractLayer{
 	private final JPanel mPanel;

@@ -1,6 +1,6 @@
 package org.ilite.telemetry.data.y2014;
 
-import ilite.display.interfaces.net.AbstractMagicNumberMsgDecoder;
+import org.ilite.interfaces.net.AbstractMagicNumberMsgDecoder;
 
 public class TelemetryDeocoder2014 extends AbstractMagicNumberMsgDecoder<Data2014>
 {

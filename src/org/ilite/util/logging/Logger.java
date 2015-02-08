@@ -1,10 +1,10 @@
 package org.ilite.util.logging;
 
-import org.ilite.util.lang.IUpdate;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.ilite.util.lang.IUpdate;
 
 public class Logger implements ILog {
 	public static void registerOutputListener(IUpdate<LogOutput> pListener)

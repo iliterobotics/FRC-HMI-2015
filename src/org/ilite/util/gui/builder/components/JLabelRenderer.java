@@ -1,8 +1,8 @@
 package org.ilite.util.gui.builder.components;
 
-import org.ilite.util.gui.builder.IRenderer;
-
 import javax.swing.JLabel;
+
+import org.ilite.util.gui.builder.IRenderer;
 
 public class JLabelRenderer extends JLabel implements IRenderer
 {

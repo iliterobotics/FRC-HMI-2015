@@ -11,8 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import javax.swing.event.ChangeListener;
-
 public class ToggleButton extends Control{
 
 	private boolean activated;

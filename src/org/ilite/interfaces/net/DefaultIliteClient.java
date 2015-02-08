@@ -3,14 +3,15 @@ package org.ilite.interfaces.net;
 import static org.ilite.interfaces.net.EConnectionState.ATTEMPTING;
 import static org.ilite.interfaces.net.EConnectionState.DISCONNECTED;
 import static org.ilite.interfaces.net.EConnectionState.ESTABLISHED;
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class DefaultIliteClient extends TCPClient
 implements IRobotConnector

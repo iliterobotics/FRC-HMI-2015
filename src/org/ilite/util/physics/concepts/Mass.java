@@ -1,6 +1,7 @@
 package org.ilite.util.physics.concepts;
 
 import static org.ilite.util.math.MathConstants.INVALID_DOUBLE;
+
 import org.ilite.util.physics.ConversionFactors;
 
 public class Mass

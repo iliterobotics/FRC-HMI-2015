@@ -4,9 +4,6 @@ import static javax.swing.SpringLayout.EAST;
 import static javax.swing.SpringLayout.NORTH;
 import static javax.swing.SpringLayout.SOUTH;
 import static javax.swing.SpringLayout.WEST;
-import org.ilite.telemetry.data.IGraphicData;
-import org.ilite.util.lang.Data;
-import org.ilite.util.lang.IUpdate;
 
 import java.awt.Component;
 import java.util.List;
@@ -15,6 +12,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
+import org.ilite.telemetry.data.IGraphicData;
+import org.ilite.util.lang.Data;
+import org.ilite.util.lang.IUpdate;
 
 public class GraphicDataPrinter<DataStructure> implements IUpdate<DataStructure>
 {

@@ -1,7 +1,6 @@
 package org.ilite.telemetry.data.y2014;
 
 import org.ilite.telemetry.drivers.AbstractPeriodicDataDriver;
-import org.ilite.telemetry.data.ETelemetryType;
 
 public class DataDriver2014 extends AbstractPeriodicDataDriver<Data2014>
 {

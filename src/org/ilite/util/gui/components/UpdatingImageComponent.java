@@ -1,17 +1,17 @@
 package org.ilite.util.gui.components;
 
-import org.ilite.util.gui.RepaintClosure;
-import org.ilite.util.gui.components.layer.AbstractLayer;
-import org.ilite.util.gui.components.layer.EDrawPriority;
-import org.ilite.util.gui.components.layer.LayeredPanel;
-import org.ilite.util.lang.IUpdate;
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
+
+import org.ilite.util.gui.RepaintClosure;
+import org.ilite.util.gui.components.layer.AbstractLayer;
+import org.ilite.util.gui.components.layer.EDrawPriority;
+import org.ilite.util.gui.components.layer.LayeredPanel;
+import org.ilite.util.lang.IUpdate;
 
 public class UpdatingImageComponent extends AbstractLayer implements IUpdate<BufferedImage>
 {

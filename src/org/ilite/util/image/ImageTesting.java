@@ -1,8 +1,5 @@
 package org.ilite.util.image;
 
-import ilite.display.camera.GenericWebCam;
-import ilite.display.omi.CameraImagePanel;
-
 import java.awt.Color;
 
 import javax.swing.JFrame;

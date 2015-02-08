@@ -40,7 +40,7 @@ import static org.ilite.telemetry.data.y2014.EData2014.PWM_RIGHT_DRIVETRAIN_1;
 import static org.ilite.telemetry.data.y2014.EData2014.PWM_RIGHT_DRIVETRAIN_2;
 import static org.ilite.telemetry.data.y2014.EData2014.PWM_SERVO_1;
 import static org.ilite.telemetry.data.y2014.EData2014.PWM_SERVO_2;
-import static org.ilite.telemetry.data.y2014. EData2014.RELAY_COMPRESSOR;
+import static org.ilite.telemetry.data.y2014.EData2014.RELAY_COMPRESSOR;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_OPEN_1;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_OPEN_2;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_SIGNAL_1;
@@ -48,11 +48,6 @@ import static org.ilite.telemetry.data.y2014.EData2014.RELAY_SIGNAL_2;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_SPARE_COMPRESSOR;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_SPARE_WINDOW_MOTOR;
 import static org.ilite.telemetry.data.y2014.EData2014.RELAY_WINDOW_MOTOR;
-import org.ilite.telemetry.data.DriverInput;
-import org.ilite.telemetry.data.ETelemetryType;
-import org.ilite.telemetry.data.FrcConstants;
-import org.ilite.telemetry.data.StdDataModel;
-import org.ilite.util.gui.builder.IRenderedDataModel;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -60,6 +55,12 @@ import java.util.Map;
 
 import javax.swing.JComponent;
 import javax.swing.JTextField;
+
+import org.ilite.telemetry.data.DriverInput;
+import org.ilite.telemetry.data.ETelemetryType;
+import org.ilite.telemetry.data.FrcConstants;
+import org.ilite.telemetry.data.StdDataModel;
+import org.ilite.util.gui.builder.IRenderedDataModel;
 
 public class Data2014 extends StdDataModel implements IRenderedDataModel<EData2014>
 {

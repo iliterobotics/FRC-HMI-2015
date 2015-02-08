@@ -18,11 +18,7 @@ public class SensorManager extends Manager {
 	public DoubleProperty getData() {
 		return data;
 	}
-
-	public void setData(double newData) {
-		data.setValue(newData);
-	}
-
+	
 	public Node[] buildWidgets() {
 		return null;
 	}
@@ -43,5 +39,11 @@ public class SensorManager extends Manager {
 	public String getDesc() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setData(Double newData) 
+	{
+		data.setValue(newData);
 	}
 }

@@ -1,10 +1,10 @@
 package org.ilite.util.gui.components;
 
-import org.ilite.util.gui.components.layer.AbstractLayer;
-
 import java.awt.Font;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+
+import org.ilite.util.gui.components.layer.AbstractLayer;
 
 public abstract class NumberOverlay extends AbstractLayer
 {

@@ -1,11 +1,11 @@
 package org.ilite.util.lang;
 
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class Notifyer implements INotify {
 	private CopyOnWriteArrayList<INotify> mListeners = new CopyOnWriteArrayList<INotify>();

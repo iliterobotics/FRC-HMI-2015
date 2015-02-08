@@ -1,8 +1,8 @@
 package org.ilite.util.gui.components.tabbedpane;
 
-import org.ilite.util.lang.IUpdate;
-
 import javax.swing.JPanel;
+
+import org.ilite.util.lang.IUpdate;
 
 public interface IDynamicTabProvider
 {
