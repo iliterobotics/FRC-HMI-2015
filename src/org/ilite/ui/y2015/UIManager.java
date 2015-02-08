@@ -25,6 +25,8 @@ public class UIManager {
 	private NotificationHolder notifications;
 
 	private int fadeTime;
+	
+	private WidgetPanel[] widgetPanels = new WidgetPanel[9];
 
 	public static final String DEFAULT = "mainBorderPane";
 
@@ -56,7 +58,7 @@ public class UIManager {
 	}
 
 	public VBox buildSelectionHolder() {
-		selectionHolder = new SideBar();
+		selectionHolder = new SideBar(this);
 		selectionHolder.setMinWidth(200);
 		selectionHolder.getStyleClass().setAll(DEFAULT);
 		// TODO add list of selections
@@ -82,5 +84,9 @@ public class UIManager {
 
 	public Pane getMainPane() {
 		return mainPane;
+	}
+	
+	private void updateWidgetPanels(){
+		
 	}
 }
