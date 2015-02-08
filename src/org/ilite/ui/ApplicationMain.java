@@ -2,6 +2,7 @@ package org.ilite.ui;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import org.ilite.telemetry.data.ServerConnector;
 import org.ilite.ui.table.Table;
 
 public class ApplicationMain extends Application
@@ -11,6 +12,8 @@ public class ApplicationMain extends Application
 	{
 		//UIBuilder.generateUI(stage);
 		Table.buildSimpleTable(stage);
+		
+		ServerConnector.getInstance();
 	}
 	
 	
