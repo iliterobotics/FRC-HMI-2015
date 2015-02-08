@@ -5,6 +5,8 @@ import java.util.List;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -32,7 +34,13 @@ public class Table {
 		stage.setTitle("RECYCLE RUSH 2015 UI");
 		stage.setWidth(800);
 		stage.setHeight(800);
-		((Group) scene.getRoot()).getChildren().add(pane);
+		ScrollPane s1 = new ScrollPane();
+		s1.setContent(pane);
+		s1.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		s1.setVmax(440);
+		s1.setFitToHeight(false);
+		s1.setMaxSize(200, 1000);
+		((Group) scene.getRoot()).getChildren().add(s1);
 
 		stage.setScene(scene);
 		stage.show();
