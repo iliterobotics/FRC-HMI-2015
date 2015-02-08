@@ -19,8 +19,8 @@ public class Table {
 	private static List<Double> values = new ArrayList<Double>();
 
 	public static void buildSimpleTable(Stage stage){
-		for(int i = 0; i < values.size(); i++){
-			values.set(i, 0.0);
+		for(int i = 0; i < EData2015.values().length; i++){
+			values.add(0.0);
 		}
 		pane = new GridPane();
 		pane.setHgap(20);
