@@ -1,8 +1,5 @@
 package org.ilite.interfaces.net;
 
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -10,6 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.concurrent.Semaphore;
+
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 
 public abstract class TCPClient implements Runnable, IMessageParser

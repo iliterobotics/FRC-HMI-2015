@@ -1,12 +1,12 @@
 package org.ilite.interfaces.net;
 
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import org.ilite.util.lang.IClone;
 import org.ilite.util.logging.ILog;
 import org.ilite.util.logging.Logger;
-
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 public class Bandwidth implements IClone<Bandwidth>{
 	public enum EUnit

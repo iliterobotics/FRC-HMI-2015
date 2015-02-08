@@ -1,9 +1,9 @@
 package org.ilite.util.lang;
 
+import java.util.concurrent.CopyOnWriteArrayList;
+
 import org.ilite.util.logging.ILog;
 import org.ilite.util.logging.Logger;
-
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**

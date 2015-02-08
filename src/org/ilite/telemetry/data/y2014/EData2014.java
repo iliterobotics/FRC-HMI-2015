@@ -5,6 +5,7 @@ import static org.ilite.telemetry.data.ETelemetryType.DIGITAL_IN;
 import static org.ilite.telemetry.data.ETelemetryType.PNEUMATIC;
 import static org.ilite.telemetry.data.ETelemetryType.PWM_OUT;
 import static org.ilite.telemetry.data.ETelemetryType.RELAY_OUT;
+
 import org.ilite.telemetry.data.ETelemetryType;
 import org.ilite.util.gui.builder.IDisplayBuilderEnum;
 import org.ilite.util.gui.builder.IRenderer;

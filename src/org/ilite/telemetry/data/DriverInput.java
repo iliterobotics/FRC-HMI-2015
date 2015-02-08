@@ -1,8 +1,8 @@
 package org.ilite.telemetry.data;
 
-import org.ilite.util.lang.ICsvData;
-
 import java.util.Arrays;
+
+import org.ilite.util.lang.ICsvData;
 
 public class DriverInput implements ICsvData
 {

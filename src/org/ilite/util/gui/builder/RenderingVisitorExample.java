@@ -1,7 +1,5 @@
 package org.ilite.util.gui.builder;
 
-import org.ilite.util.gui.builder.components.JLabelRenderer;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,6 +9,8 @@ import java.util.Map;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import org.ilite.util.gui.builder.components.JLabelRenderer;
 
 public class RenderingVisitorExample
 {

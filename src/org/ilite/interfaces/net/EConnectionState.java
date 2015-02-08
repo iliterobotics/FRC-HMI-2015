@@ -1,8 +1,8 @@
 package org.ilite.interfaces.net;
 
-import org.ilite.util.lang.IClone;
-
 import java.awt.Color;
+
+import org.ilite.util.lang.IClone;
 
 public enum EConnectionState implements IClone<EConnectionState>
 {

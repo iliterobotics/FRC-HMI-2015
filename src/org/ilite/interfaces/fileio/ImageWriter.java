@@ -1,9 +1,5 @@
 package org.ilite.interfaces.fileio;
 
-import org.ilite.util.lang.IUpdate;
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +7,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import javax.imageio.ImageIO;
+
+import org.ilite.util.lang.IUpdate;
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class ImageWriter implements IUpdate<BufferedImage>
 {

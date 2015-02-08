@@ -1,9 +1,5 @@
 package org.ilite.util.platform;
 
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
 
 /**
  * Class to test to see if the opencv is configured correctly. If opencv is 

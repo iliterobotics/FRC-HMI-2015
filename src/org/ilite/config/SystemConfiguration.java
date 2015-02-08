@@ -1,8 +1,5 @@
 package org.ilite.config;
 
-import org.ilite.util.lang.Delegator;
-import org.ilite.util.lang.IUpdate;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +7,9 @@ import java.util.Map;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+
+import org.ilite.util.lang.Delegator;
+import org.ilite.util.lang.IUpdate;
 
 public class SystemConfiguration implements TableModel, ISystemConfiguration
 {

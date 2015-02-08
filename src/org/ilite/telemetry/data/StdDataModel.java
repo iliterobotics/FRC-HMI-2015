@@ -1,10 +1,10 @@
 package org.ilite.telemetry.data;
 
-import org.ilite.util.lang.ICsvData;
-import org.ilite.util.lang.IEncodable;
-
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+
+import org.ilite.util.lang.ICsvData;
+import org.ilite.util.lang.IEncodable;
 
 
 /**

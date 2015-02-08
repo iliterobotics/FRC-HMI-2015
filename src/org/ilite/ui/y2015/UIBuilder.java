@@ -11,6 +11,7 @@ public class UIBuilder
 	{
 		Scene scene = new Scene(new Group());
 		scene.getStylesheets().addAll("/org/ilite/uitools/css/main.css", "/org/ilite/ui/css/UIManager.css");
+		
 		stage.setTitle("RECYCLE RUSH 2015 UI");
 		stage.setWidth(800);
 		stage.setHeight(800);

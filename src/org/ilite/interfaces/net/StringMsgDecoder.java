@@ -1,6 +1,6 @@
 package org.ilite.interfaces.net;
 
-import org.ilite.data.models.RobotDebugMessage;
+import org.ilite.telemetry.data.RobotDebugMessage;
 import org.ilite.util.logging.ILog;
 import org.ilite.util.logging.Logger;
 

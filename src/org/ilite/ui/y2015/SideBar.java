@@ -12,7 +12,7 @@ import org.ilite.uitools.managers.Manager;
 import org.ilite.uitools.managers.MotorManager;
 import org.ilite.uitools.widget.toggle.ToggleButton;
 
-public class SideBar extends VBox{
+public class SideBar extends VBox implements TelemetryDataListener{
 	
 	public List<Manager> elements;
 	
@@ -39,6 +39,8 @@ public class SideBar extends VBox{
 		button.getActivatedValue().addListener(observable -> updatePanelStatus(m, button.getActivatedValue().get()));
 		return button;
 	}
+	
+	
 	
 	private void updatePanelStatus(Manager manager, boolean active){
 		if(active)

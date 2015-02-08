@@ -1,11 +1,11 @@
 package org.ilite.uitools.managers;
 
-import org.ilite.uitools.widget.chart.DataChart;
-import org.ilite.uitools.widget.gauge.Gauge;
-
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
+
+import org.ilite.uitools.widget.chart.DataChart;
+import org.ilite.uitools.widget.gauge.Gauge;
 
 public class MotorManager extends Manager {
 	private DoubleProperty data = new SimpleDoubleProperty();

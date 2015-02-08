@@ -1,8 +1,5 @@
 package org.ilite.config;
 
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +9,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

@@ -1,11 +1,11 @@
 package org.ilite.util.gui.components.tabbedpane;
 
-import org.ilite.util.lang.IUpdate;
-
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SpringLayout;
+
+import org.ilite.util.lang.IUpdate;
 
 public class DynamicTabbedPane
 {

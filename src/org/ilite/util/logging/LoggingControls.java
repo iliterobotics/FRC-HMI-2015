@@ -1,12 +1,12 @@
 package org.ilite.util.logging;
 
-import org.ilite.util.lang.Delegator;
-import org.ilite.util.lang.IUpdate;
-
 import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.swing.SwingUtilities;
+
+import org.ilite.util.lang.Delegator;
+import org.ilite.util.lang.IUpdate;
 
 enum LoggingControls {
 	INST;

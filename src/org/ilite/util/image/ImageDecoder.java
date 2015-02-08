@@ -1,11 +1,5 @@
 package org.ilite.util.image;
 
-import org.ilite.util.lang.Delegator;
-import org.ilite.util.lang.IProvider;
-import org.ilite.util.lang.IUpdate;
-import org.ilite.util.logging.ILog;
-import org.ilite.util.logging.Logger;
-
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -15,6 +9,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 import javax.imageio.ImageIO;
+
+import org.ilite.util.lang.Delegator;
+import org.ilite.util.lang.IProvider;
+import org.ilite.util.lang.IUpdate;
+import org.ilite.util.logging.ILog;
+import org.ilite.util.logging.Logger;
 
 public class ImageDecoder implements IUpdate<byte[]>, IProvider<BufferedImage> {
 	private final ILog mLog = Logger.createLog(ImageDecoder.class);

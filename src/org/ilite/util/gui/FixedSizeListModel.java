@@ -1,13 +1,13 @@
 package org.ilite.util.gui;
 
-import org.ilite.util.lang.FixedSizeQueue;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
+
+import org.ilite.util.lang.FixedSizeQueue;
 
 public class FixedSizeListModel<E> extends FixedSizeQueue<E> implements ListModel<E>
 {
