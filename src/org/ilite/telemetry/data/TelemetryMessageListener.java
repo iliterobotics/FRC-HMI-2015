@@ -1,11 +1,12 @@
 package org.ilite.telemetry.data;
 
-import org.ilite.uitools.managers.Manager;
+import org.ilite.ui.y2015.SideBar;
+import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
 
 public interface TelemetryMessageListener 
 {	
-	public static void receivedMessage(Object msg)
+	public static void receivedMessage(TelemetryMessage msg)
 	{
-//		Manager.getUpdate(msg);
+		SideBar.update(msg);
 	}
 }

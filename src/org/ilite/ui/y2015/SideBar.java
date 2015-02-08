@@ -11,10 +11,11 @@ import javafx.scene.text.Text;
 import org.ilite.uitools.managers.Manager;
 import org.ilite.uitools.managers.MotorManager;
 import org.ilite.uitools.widget.toggle.ToggleButton;
+import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
 
 public class SideBar extends VBox{
 	
-	public List<Manager> elements;
+	public static List<Manager> elements;
 	
 	private UIManager master;
 
@@ -40,7 +41,13 @@ public class SideBar extends VBox{
 		return button;
 	}
 	
-	
+	public static void update(TelemetryMessage msg)
+	{
+		for(Manager m : elements)
+		{
+			m.getUpdate(msg);
+		}
+	}
 	
 	private void updatePanelStatus(Manager manager, boolean active){
 		if(active)
