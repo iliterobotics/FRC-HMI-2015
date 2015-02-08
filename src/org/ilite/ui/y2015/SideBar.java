@@ -44,10 +44,6 @@ public class SideBar extends VBox{
 		return button;
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-=======
 	public static void update(TelemetryMessage msg)
 	{
 		for(Manager m : elements)
@@ -55,14 +51,9 @@ public class SideBar extends VBox{
 			m.getUpdate(msg);
 		}
 	}
->>>>>>> 294fb2708704e3c9ae7b2deb5faee74c5f9ad93e
 	
 	private void updatePanelStatus(Manager manager, boolean active){
 		if(active)
-=======
-	private void updatePanelStatus(Manager manager, boolean active, ToggleButton toggle){
-		if(!active)
->>>>>>> 1bdb5335d2951eefa71e32741016dc5045d99f58
 			master.addWidgetPanel(manager);
 		else
 			master.removeWidgetPanel(manager);
