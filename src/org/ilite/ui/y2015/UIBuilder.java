@@ -5,24 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
-public class UIBuilder
+public class UIBuilder 
 {
-	public static void generateUI(Stage stage)
+	public static void generateUI(Stage stage) 
 	{
-		Scene scene=new Scene(new Group());
-		scene.getStylesheets().add("src/or/ilite/ui/skins/darcula.css");
-		
-		stage.setTitle("RECYCLE RUSH 2015 UI");
-		stage.setWidth(800);
-		stage.setHeight(800);
-		
-		VBox nodeList=new VBox();
-		((Group) scene.getRoot()).getChildren().add(nodeList);
-		
-=======
-public class UIBuilder {
-	public static void generateUI(Stage stage) {
 		Scene scene = new Scene(new Group());
 		scene.getStylesheets().addAll("/org/ilite/uitools/css/main.css", "/org/ilite/ui/css/UIManager.css");
 		stage.setTitle("RECYCLE RUSH 2015 UI");
@@ -30,7 +16,7 @@ public class UIBuilder {
 		stage.setHeight(800);
 		UIManager uiManager = new UIManager();
 		((Group) scene.getRoot()).getChildren().add(uiManager.getMainPane());
->>>>>>> e4a7f08a0263012ed9f295f2364865531a4898f1
+
 		stage.setScene(scene);
 		stage.show();
 		stage.setFullScreen(true);
