@@ -7,6 +7,7 @@ import org.ilite.telemetry.data.ETelemetryType;
 =======
 >>>>>>> 1bdb5335d2951eefa71e32741016dc5045d99f58
 import org.ilite.telemetry.data.y2015.EData2015;
+import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
 
 public abstract class Manager {
 	private EData2015 dataType;
@@ -27,12 +28,29 @@ public abstract class Manager {
 	public abstract String getDesc();
 	public abstract void setData(Double newData);
 	
-	public void getUpdate()
+	public void getUpdate(TelemetryMessage msg)
 	{
 		if(dataType.getType().equals(ETelemetryType.PNEUMATIC))
 		{
-			setData(getSolenoid(data.getPortNumber()));
+			setData(msg.getSolenoids(dataType.getPortNumber()));
+		}
+		else if(dataType.getType().equals(ETelemetryType.RELAY_OUT))
+		{
+			setData(msg.getRelays(dataType.getPortNumber()));
+		}
+		else if(dataType.getType().equals(ETelemetryType.ANALOG_IN))
+		{
+			setData(msg.getAnalogInputs(dataType.getPortNumber()));
+		}
+		else if(dataType.getType().equals(ETelemetryType.DIGITAL_IN))
+		{
+			setData(msg.getDigitalInputs(dataType.getPortNumber()));
+		}
+		else if(dataType.getType().equals(ETelemetryType.PWM_OUT))
+		{
+			setData(msg.getDigitalOutputs(dataType.getPortNumber()));
 		}
 	}
+
 }
 
