@@ -21,7 +21,10 @@ public class SideBar extends VBox implements TelemetryDataListener{
 	public SideBar(UIManager master){
 		elements = new ArrayList<Manager>();
 		
-		elements.add(new MotorManager());
+		elements.add(new MotorManager(null));
+		elements.add(new MotorManager(null));
+		elements.add(new MotorManager(null));
+		elements.add(new MotorManager(null));
 		this.master = master;
 		build();
 	}
@@ -36,17 +39,22 @@ public class SideBar extends VBox implements TelemetryDataListener{
 		Text text = new Text("Motor 1");
 		text.setFont(new Font("Monaco", 40));
 		ToggleButton button = new ToggleButton(text);
-		button.getActivatedValue().addListener(observable -> updatePanelStatus(m, button.getActivatedValue().get()));
+		button.getActivatedValue().addListener(observable -> updatePanelStatus(m, button.getActivatedValue().get(), button));
 		return button;
 	}
 	
+<<<<<<< HEAD
 	
 	
 	private void updatePanelStatus(Manager manager, boolean active){
 		if(active)
+=======
+	private void updatePanelStatus(Manager manager, boolean active, ToggleButton toggle){
+		if(!active)
+>>>>>>> 1bdb5335d2951eefa71e32741016dc5045d99f58
 			master.addWidgetPanel(manager);
 		else
-			master.
+			master.removeWidgetPanel(manager);
 	}
 
 }

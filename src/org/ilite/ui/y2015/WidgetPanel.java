@@ -25,28 +25,27 @@ public class WidgetPanel extends Pane{
 		getChildren().removeAll(getChildren());
 		
 		VBox main = new VBox();
+		main.setMaxSize(width, height);
 		BorderPane top = new BorderPane();
+		top.setMaxSize(width, height / 5);
 		HBox widgetBox = new HBox();
+		widgetBox.setMaxSize(width, height / 3 * 5);
 		Text titleText = new Text(manager.getName());
-		titleText.setFont(new Font(null, height >> 2));
+		titleText.setFont(new Font(null, 20));
 		Text descriptionText = new Text(manager.getDesc());
-		descriptionText.setFont(new Font(null, height >> 2));
+		descriptionText.setFont(new Font(null, height / 10));
 
 		ImageView removeImg = new ImageView(
 				"/org/ilite/uitools/widget/img/RemoveImage.png");
-		removeImg.fitHeightProperty().set(height >> 2);
-		removeImg.fitWidthProperty().set(height >> 2);
+		removeImg.fitHeightProperty().set(height / 5);
+		removeImg.fitWidthProperty().set(height / 5);
 		Button remove = new Button("", removeImg);
 		ToggleButton pin = new ToggleButton("PinImage.png");
 		HBox buttons = new HBox();
 		buttons.getChildren().addAll(pin, remove);
 
-		widgetBox.setSpacing(5);
-
 		top.setCenter(titleText);
 		top.setRight(buttons);
-		
-		main.setMaxSize(width, height);
 
 		main.getStyleClass().setAll(UIManager.DEFAULT);
 		top.getStyleClass().setAll(UIManager.DEFAULT);
@@ -61,7 +60,12 @@ public class WidgetPanel extends Pane{
 	}
 	
 	public void buildWidgets(HBox box){
-		box.getChildren().addAll(manager.buildWidgets(height));
+		box.getChildren().removeAll(box.getChildren());
+		box.getChildren().addAll(manager.buildWidgets(height / 5 * 3));
+	}
+	
+	public Manager getManager(){
+		return manager;
 	}
 
 }

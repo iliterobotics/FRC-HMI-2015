@@ -12,6 +12,7 @@ public class DataChart extends LineChart<Number, Number> {
 	private static Axis<Number> yAxis = new NumberAxis();
 	@SuppressWarnings("rawtypes")
 	XYChart.Series series;
+	int timeSig;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public DataChart(DoubleProperty pinger, int size) {
@@ -27,8 +28,8 @@ public class DataChart extends LineChart<Number, Number> {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void addData(double value) {
-		double timeSignature = System.currentTimeMillis();
-		series.getData().add(new XYChart.Data(value, timeSignature));
+		timeSig ++;
+		series.getData().add(new XYChart.Data(timeSig, value));
 	}
 
 }

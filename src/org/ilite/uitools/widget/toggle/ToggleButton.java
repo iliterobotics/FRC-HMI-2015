@@ -19,7 +19,6 @@ public class ToggleButton extends Control{
 	private Node icon;
 
 	public ToggleButton(Image icon) {
-		
 		this.icon = new ImageView(icon);
 		this.setWidth(icon.getWidth() + 10);
 		this.setHeight(icon.getHeight() + 10);
@@ -48,7 +47,7 @@ public class ToggleButton extends Control{
 			@Override
 			public void handle(MouseEvent arg0) {
 				activatedValue.set(!activatedValue.get());
-				((ToggleButtonSkin) getSkin()).setActivated(activatedValue.get());
+				updateSkin();
 			}
 		});
 	}
@@ -66,7 +65,16 @@ public class ToggleButton extends Control{
 	}
 
 	public boolean isActivated() {
-		return activated;
+		return activatedValue.get();
+	}
+	
+	public void forceChange(boolean newState){
+		activatedValue.set(newState);
+		updateSkin();
+	}
+	
+	public void updateSkin(){
+		((ToggleButtonSkin) getSkin()).setActivated(activatedValue.get());
 	}
 
 }
