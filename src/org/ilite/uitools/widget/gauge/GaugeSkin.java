@@ -1,20 +1,31 @@
 package org.ilite.uitools.widget.gauge;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.control.SkinBase;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 public class GaugeSkin extends SkinBase<Gauge> {
 
-	private Polygon 	arrow;
-	private Arc 		top;
-	private Rotate   	arrowRotate;
+	private Polygon arrow;
+	private Arc top;
+	private Rotate arrowRotate;
+	
+	private Text min;
+	private Text max;
+	
+	private Timeline rotationAnimationTimeline;
 
 	protected GaugeSkin(Gauge control) {
 		super(control);
 		initGraphics();
+		addListeners();
 	}
 
 	private void initGraphics() {
@@ -25,38 +36,55 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		top.getStyleClass().setAll("gauge");
 
 		arrowRotate = new Rotate(0, 0, 0, 0, Rotate.Z_AXIS);
-		
+
 		arrow = new Polygon();
 		arrow.getStyleClass().setAll("arrow");
 		arrow.getPoints().addAll(2.0, 0.0, 0.0, -20.0, -2.0, 0.0);
 		arrow.getTransforms().add(arrowRotate);
+		
+		min = new Text(getSkinnable().valueProperty.get() + "");
+		getChildren().addAll(top, arrow, min);
+		
+		rotationAnimationTimeline = new Timeline();
+		
 		resize();
-		getChildren().addAll(top, arrow);
+		refreshArrow();
 	}
 
 	public void resize() {
-		int width = (int) getSkinnable().sizeProperty().get();
+		int width = (int) getSkinnable().getSize();
 		int radius = width / 2;
 		top.setCenterX(radius);
 		top.setCenterY(radius);
 		top.setRadiusX(radius);
 		top.setRadiusY(radius);
+
+		arrow.getPoints().addAll((width / 40.0), 0.0, 0.0, (radius * -1.0),
+				(width / -40.0), 0.0);
+	}
+
+	public void refreshArrow() {
+		rotationAnimationTimeline.stop();
+		rotationAnimationTimeline.getKeyFrames().removeAll(rotationAnimationTimeline.getKeyFrames());
+		double max = getSkinnable().getMaxValue();
+		double min = getSkinnable().getMinValue();
+		double current = getSkinnable().getValue();
 		
-		arrow.getPoints().addAll((width / 40.0), 0.0, 0.0, (radius * -1.0), (width / -40.0), 0.0);
+		double newAngle =  (current / (max - min)) * 180 - 90;
+		
+		rotationAnimationTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(300), new KeyValue(arrowRotate.angleProperty(), newAngle)));
+		rotationAnimationTimeline.play();
+		
+		String currentString = current + "";
+		this.min.setText(currentString.substring(0, currentString.length() > 5? 5 : currentString.length()));
 	}
 	
-	public void refreshArrow(){
-		System.out.println("Event fired!");
-		double max 		= getSkinnable().maxProperty().get();
-		double min 		= getSkinnable().minProperty().get();
-		double current	= getSkinnable().valueProperty().get();
+	private void addListeners(){
+		getSkinnable().getValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getMinValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getMaxValueProperty().addListener(observable -> refreshArrow());
+		getSkinnable().getSizeProperty().addListener(observable -> resize());
 		
-		arrowRotate.setAngle((current / (max - min)) * 180 - 90);
-	}
-	
-	public void defineListeners(){
-		getSkinnable().sizeProperty().addListener(observable -> resize());
-		getSkinnable().valueProperty().addListener(observable -> refreshArrow());
 	}
 
 }

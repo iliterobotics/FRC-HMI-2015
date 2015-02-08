@@ -1,17 +1,20 @@
 package org.ilite.uitools.widget.toggle;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.SkinBase;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 	
@@ -27,7 +30,7 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 	private int height;
 	
 	private StackPane contents;
-	private Rectangle backIcon;
+	private HBox backIcon;
 	private Node frontIcon;
 	private Circle iconLight;
 	
@@ -44,13 +47,11 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 		height = (int) getSkinnable().getHeight();
 		
 		frontIcon = getSkinnable().getIcon();
-		backIcon = new Rectangle(width + 10, height + 10);
-		backIcon.setArcHeight(10);
-		backIcon.setArcWidth(10);
+		backIcon = new HBox();
+		backIcon.setPrefSize(width + 10, height + 10);
 		iconLight = new Circle(5);
 		StackPane.setAlignment(iconLight, Pos.TOP_RIGHT);
-		
-		
+
 		contents.getChildren().addAll(backIcon, frontIcon, iconLight);
 		getChildren().addAll(contents);
 		setActivated(getSkinnable().isActivated());
@@ -76,7 +77,7 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 			iconLight.setFill(Color.GREEN);
 			iconLight.setEffect(new GaussianBlur());
 		}
-		backIcon.setFill(fill);
+		backIcon.setBackground(new Background(new BackgroundFill(fill, new CornerRadii(10), Insets.EMPTY)));
 	}
 	
 	

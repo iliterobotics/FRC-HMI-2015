@@ -1,0 +1,6 @@
+.mainBorderPane{
+	-fx-background-color: dimgray;
+	-fx-border-color: black;
+	-fx-padding: 10.0pt;
+	-fx-border-radius: 10.0pt; 
+}

@@ -13,9 +13,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+public class NotificationSkin extends SkinBase<Notification> {
 
-public class NotificationSkin extends SkinBase<Notification>{
-	
 	private FadeTransition fin, ft, fout;
 	private StackPane contents;
 
@@ -27,76 +26,77 @@ public class NotificationSkin extends SkinBase<Notification>{
 	private void initGraphics() {
 		contents = new StackPane();
 		Text text = new Text(getSkinnable().getText());
-		
+
 		fin = new FadeTransition(Duration.millis(1000));
 		fin.setFromValue(0);
 		fin.setToValue(1);
 		fin.setNode(getSkinnable());
-		
+
 		ft = new FadeTransition(Duration.millis(500));
 		ft.setFromValue(1);
 		ft.setToValue(0.8);
 		ft.setNode(getSkinnable());
 		ft.setAutoReverse(true);
-		ft.setCycleCount((int)(getSkinnable().getDuration() / 500.0));
-		
+		ft.setCycleCount((int) (getSkinnable().getDuration() / 500.0));
+
 		fout = new FadeTransition(Duration.millis(500));
 		fout.setFromValue(1);
 		fout.setToValue(0);
 		fout.setNode(getSkinnable());
-		
+
 		Button xout = new Button();
 		xout.setText("X");
 		xout.getStyleClass().add("button1");
 		StackPane.setAlignment(xout, Pos.TOP_RIGHT);
 		xout.setOnMousePressed(new EventHandler<MouseEvent>() {
-	         	@Override
-				public void handle(MouseEvent arg0) {
-					fin.stop();
-	                ft.stop();
-	                fadeOut();
-				}
-	        });
-		Rectangle backdrop  = new Rectangle();
+			@Override
+			public void handle(MouseEvent arg0) {
+				fin.stop();
+				ft.stop();
+				fadeOut();
+			}
+		});
+		Rectangle backdrop = new Rectangle();
 		backdrop.setWidth(20 + text.getLayoutBounds().getWidth() + 20);
 		backdrop.setHeight(30);
 		backdrop.setFill(Color.web("#A0A0A0"));
-		
+
 		contents.getChildren().addAll(backdrop, text, xout);
 		contents.setMaxSize(backdrop.getWidth(), backdrop.getHeight());
 		getChildren().add(contents);
-		
+
 		fadeIn();
 	}
-	
-	public void fadeIn(){
-		
-	 
+
+	public void fadeIn() {
+
 		fin.play();
-		
+
 		fin.setOnFinished(new EventHandler<ActionEvent>() {
-	            @Override public void handle(ActionEvent e) {
-	                ft.play();
-	            }
-	        });
+			@Override
+			public void handle(ActionEvent e) {
+				ft.play();
+			}
+		});
 		ft.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                fadeOut();
-            }
-        });
-		
-		
+			@Override
+			public void handle(ActionEvent e) {
+				fadeOut();
+			}
+		});
+
 	}
-	
-	public void fadeOut(){
-	 
+
+	public void fadeOut() {
+
 		fout.play();
-		
+
 		fout.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-            	//TODO make the thing happen
-            }
-        });
+			@Override
+			public void handle(ActionEvent e) {
+				getSkinnable().die();
+			}
+		});
 	}
 
 }

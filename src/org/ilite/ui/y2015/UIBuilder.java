@@ -1,9 +1,11 @@
 package org.ilite.ui.y2015;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+<<<<<<< HEAD
 public class UIBuilder
 {
 	public static void generateUI(Stage stage)
@@ -18,7 +20,31 @@ public class UIBuilder
 		VBox nodeList=new VBox();
 		((Group) scene.getRoot()).getChildren().add(nodeList);
 		
+=======
+public class UIBuilder {
+	public static void generateUI(Stage stage) {
+		Scene scene = new Scene(new Group());
+		scene.getStylesheets().addAll("/org/ilite/uitools/css/main.css", "/org/ilite/ui/css/UIManager.css");
+		stage.setTitle("RECYCLE RUSH 2015 UI");
+		stage.setWidth(800);
+		stage.setHeight(800);
+		UIManager uiManager = new UIManager();
+		((Group) scene.getRoot()).getChildren().add(uiManager.getMainPane());
+>>>>>>> e4a7f08a0263012ed9f295f2364865531a4898f1
 		stage.setScene(scene);
 		stage.show();
+		stage.setFullScreen(true);
+		scene.setFill(Color.TRANSPARENT);
 	}
+
+/*	private static void MikalzTestMethod(Pane parent) {
+		NotificationHolder notifier = new NotificationHolder();
+		notifier.setFadeTime(1000);
+		notifier.notify("hmmmm");
+		notifier.notify("who, r u?");
+		parent.getChildren()
+				.addAll(notifier,
+						new ToggleButton("face.png"),
+						new Gauge());
+	} */
 }

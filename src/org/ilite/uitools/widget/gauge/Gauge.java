@@ -1,7 +1,6 @@
 package org.ilite.uitools.widget.gauge;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.DoublePropertyBase;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.EventHandler;
 import javafx.scene.control.Control;
@@ -10,55 +9,46 @@ import javafx.scene.input.MouseEvent;
 
 public class Gauge extends Control {
 
-	DoubleProperty value;
-	double _value;
-	DoubleProperty size;
-	double _size;
-	DoubleProperty max;
-	double _max;
-	DoubleProperty min;
-	double _min;
+	
+	double value;
+	DoubleProperty valueProperty;
+	double size;
+	DoubleProperty sizeProperty;
+	double max;
+	DoubleProperty maxProperty;
+	double min;
+	DoubleProperty minProperty;
 
-	public Gauge() {
-		_size = 200;
-		_max = 1000;
-		_min = 0;
+	public Gauge(DoubleProperty valueProp, int size, double min, double max) {
+		this.size = size;
+		sizeProperty = new SimpleDoubleProperty(size);
+		
+		this.max = max;
+		maxProperty = new SimpleDoubleProperty(max);
+		
+		this.min = min;
+		minProperty = new SimpleDoubleProperty(min);
+		
+		valueProperty = new SimpleDoubleProperty(min);
+		
+		valueProp.addListener(observable -> setValue(valueProp.get()));
+
 		init();
 	}
-	
-	private void init(){
-		this.setOnMousePressed(new EventHandler<MouseEvent>(){
+
+	private void init() {
+		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent arg0) {
-				valueProperty().set(valueProperty().get() + 50);
-				System.out.println(valueProperty().get());
+				setValue( valueProperty.get() + 0.1 );
+				System.out.println(valueProperty.get());
 			}
-			
+
 		});
+
 		
-		value                    = new DoublePropertyBase(_value) {
-            @Override protected void invalidated() {
-                set(clamp(getMinValue(), getMaxValue(), get()));
-            }
-            @Override public Object getBean() { return this; }
-            @Override public String getName() { return "value"; }
-        };
-        min                    = new DoublePropertyBase(_min) {
-            @Override protected void invalidated() {
-                set(getMinValue());
-            }
-            @Override public Object getBean() { return this; }
-            @Override public String getName() { return "minValue"; }
-        };
-        max                    = new DoublePropertyBase(_max) {
-            @Override protected void invalidated() {
-                set(getMaxValue());
-            }
-            @Override public Object getBean() { return this; }
-            @Override public String getName() { return "maxValue"; }
-        };
-        
+
 	}
 
 	public Skin<Gauge> createDefaultSkin() {
@@ -67,49 +57,51 @@ public class Gauge extends Control {
 
 	}
 
-	public DoubleProperty valueProperty() {
-		if (value == null) {
-			value = new SimpleDoubleProperty(this, "value", _value);
-		}
-		return value;
+	public double getMinValue() {
+		return minProperty.get();
 	}
-	public DoubleProperty sizeProperty() {
-		if (size == null) {
-			size = new SimpleDoubleProperty(this, "size", _size);
-		}
-		return size;
+
+	public double getValue() {
+		return valueProperty.get();
 	}
-	
-	public DoubleProperty maxProperty() {
-		if (max == null) {
-			max = new SimpleDoubleProperty(this, "max", _max);
-		}
-		return max;
-	}
-	public DoubleProperty minProperty() {
-		if (min == null) {
-			min = new SimpleDoubleProperty(this, "min", _min);
-		}
-		return min;
+
+	public double getMaxValue() {
+		return maxProperty.get();
 	}
 	
-	public double getMinValue(){
-		return minProperty().get();
-	}
-	public double getValue(){
-		return valueProperty().get();
-	}
-	public double getMaxValue(){
-		return maxProperty().get();
-	}
-	// ***TEMPORARY***
-	public void setValue(double d){
-		_value = d;
+	public double getSize(){
+		return sizeProperty.get();
 	}
 	
-	private double clamp(final double MIN_VALUE, final double MAX_VALUE, final double VALUE) {
-        if (VALUE < MIN_VALUE) return MIN_VALUE;
-        if (VALUE > MAX_VALUE) return MAX_VALUE;
-        return VALUE;
-    }
+	public DoubleProperty getMinValueProperty() {
+		return minProperty;
+	}
+
+	public DoubleProperty getValueProperty() {
+		return valueProperty;
+	}
+
+	public DoubleProperty getMaxValueProperty() {
+		return maxProperty;
+	}
+	
+	public DoubleProperty getSizeProperty(){
+		return sizeProperty;
+	}
+	public void setValue(double d) {
+		valueProperty.set(clamp(min, max, d));
+	}
+	
+	public void setSize(double d){
+		sizeProperty.set(d);
+	}
+	
+	private double clamp(final double MIN_VALUE, final double MAX_VALUE,
+			final double VALUE) {
+		if (VALUE < MIN_VALUE)
+			return MIN_VALUE;
+		else if (VALUE > MAX_VALUE)
+			return MAX_VALUE;
+		else return VALUE;
+	}
 }
