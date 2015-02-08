@@ -12,7 +12,7 @@ import org.ilite.uitools.managers.Manager;
 import org.ilite.uitools.managers.MotorManager;
 import org.ilite.uitools.widget.toggle.ToggleButton;
 
-public class SideBar extends VBox implements TelemetryDataListener{
+public class SideBar extends VBox{
 	
 	public List<Manager> elements;
 	

@@ -18,10 +18,6 @@ public class MotorManager extends Manager {
 		return data;
 	}
 
-	public void setData(double newData) {
-		data.setValue(newData);
-	}
-
 	@Override
 	public Node[] buildWidgets(int size) {
 		Node[] nodes = new Node[2];
@@ -34,5 +30,11 @@ public class MotorManager extends Manager {
 	}
 	public String getDesc(){
 		return "TEMP_DESC";
+	}
+
+	@Override
+	public void setData(Double newData)
+	{
+		data.setValue(newData);
 	}
 }

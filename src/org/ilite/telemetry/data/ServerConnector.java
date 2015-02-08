@@ -60,7 +60,7 @@ public class ServerConnector implements Runnable {
 				msg = clientInputStream.readObject();
 
 				System.out.println(msg);
-				// invoke data listeners
+				TelemetryMessageListener.receivedMessage(msg);
 			}
 		}
 		catch (IOException e) {		e.printStackTrace();	}

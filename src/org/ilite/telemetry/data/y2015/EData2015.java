@@ -20,7 +20,7 @@ public enum EData2015 implements IDisplayBuilderEnum
 	DIGIN2_ENC1B(1, DIGITAL_IN, "Encoder 1 Channel B"),
 	DIGIN3_ENC2A(2, DIGITAL_IN, "Encoder 2 Channel A"),
 	DIGIN4_ENC2B(3, DIGITAL_IN, "Encoder 2 Channel B"),
-	DIGIN5_ENC3A(4, DIGITAL_IN),
+	DIGIN5_ENC3A(4, DIGITAL_IN, "Encoder 3 Channel A"),
 	DIGIN6_ENC3B(5, DIGITAL_IN),
 	DIGIN7(6, DIGITAL_IN),
 	DIGIN8(7, DIGITAL_IN),
