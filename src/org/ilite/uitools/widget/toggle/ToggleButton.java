@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import javax.swing.event.ChangeListener;
+
 public class ToggleButton extends Control{
 
 	private boolean activated;
@@ -51,6 +53,10 @@ public class ToggleButton extends Control{
 				((ToggleButtonSkin) getSkin()).setActivated(activatedValue.get());
 			}
 		});
+	}
+	
+	public BooleanProperty getActivatedValue(){
+		return activatedValue;
 	}
 
 	public Skin<ToggleButton> createDefaultSkin() {
