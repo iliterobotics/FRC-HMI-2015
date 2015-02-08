@@ -1,5 +1,7 @@
 package org.ilite.uitools.managers;
 
+import org.ilite.telemetry.data.y2015.EData2015;
+
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
@@ -7,7 +9,9 @@ import javafx.scene.Node;
 public class SensorManager extends Manager {
 	private DoubleProperty data = new SimpleDoubleProperty();
 
-	public SensorManager() {
+	public SensorManager(EData2015 dataType) {
+		super(dataType);
+		
 		data.setValue(0);
 	}
 

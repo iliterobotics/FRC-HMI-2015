@@ -54,7 +54,7 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 
 		contents.getChildren().addAll(backIcon, frontIcon, iconLight);
 		getChildren().addAll(contents);
-		setActivated(getSkinnable().isActivated());
+		setActivated(getSkinnable().getActivatedValue().get());
 	}
 	
 	public void setActivated(boolean state){
