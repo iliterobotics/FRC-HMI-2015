@@ -26,7 +26,7 @@ public class SideBar extends VBox{
 	
 	public Node buildTableElement(Manager m){
 		Text text = new Text("Motor 1");
-		text.setFont(new Font("Monaco", 40));
+		text.setFont(new Font("Monaco", 20));
 		ToggleButton button = new ToggleButton(text);
 		button.getActivatedValue().addListener(observable -> updatePanelStatus(m, button.getActivatedValue().get(), button));
 		return button;
