@@ -16,7 +16,7 @@ public class ApplicationMain extends Application
 
 //		UIBuilder.generateUI(stage);
 		
-		AudioClip beeper = new AudioClip("file:///c:/Users/Natalie/Development/Workspaces/HMI-BlackSOD/FRC-HMI/src/beep.mp3");
+		AudioClip beeper = new AudioClip("file:///D:/FRC%20GUI/frc-hmi/src/beep.mp3");
 		beeper.setVolume(1.0);
 //		beeper.setRate();
 		beeper.setCycleCount(5);
