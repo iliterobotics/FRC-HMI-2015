@@ -59,7 +59,7 @@ public class ToggleButtonSkin extends SkinBase<ToggleButton>{
 	
 	public void setActivated(boolean state){
 		LinearGradient fill;
-		if(state){
+		if(!state){
 			fill = new LinearGradient(0, 0, backIcon.getWidth(), backIcon.getHeight(), false, CycleMethod.NO_CYCLE, new Stop[]{
 				new Stop(0.0, START_COLOR),
 				//new Stop(0.5, MID_COLOR),

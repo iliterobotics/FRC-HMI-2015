@@ -1,29 +1,45 @@
 package org.ilite.uitools.widget.chart;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.event.EventHandler;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 
-public class DataChart extends LineChart<Number, Number> {
-
-	private static Axis<Number> xAxis = new NumberAxis();
-	private static Axis<Number> yAxis = new NumberAxis();
+public class DataChart extends StackPane {
+	
+	private LineChart<Number, Number> chart;
 	@SuppressWarnings("rawtypes")
-	XYChart.Series series;
+	private XYChart.Series series;
 	int timeSig;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public DataChart(DoubleProperty pinger, int size) {
-		super(xAxis, yAxis);
-		this.setMaxSize(size, size);
-		this.setMinSize(size, size);
+	public DataChart(DoubleProperty pinger, int width, int height) {
+		Axis<Number> xAxis = new NumberAxis();
+		Axis<Number> yAxis = new NumberAxis();
+		chart = new LineChart(xAxis, xAxis);
+		chart.setMaxSize(width, height);
+		chart.setMinSize(width, height);
+		chart.setAlternativeColumnFillVisible(false);
+		chart.setAlternativeRowFillVisible(false);
 		xAxis.setLabel("Time");
 		yAxis.setLabel("Value");
 		series = new XYChart.Series();
 		pinger.addListener(observable -> addData(pinger.get()));
-		getData().add(series);
+		chart.getData().add(series);
+		
+		chart.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				pinger.set( pinger.get() + 0.1 );
+			}
+
+		});
+		this.getChildren().addAll(chart);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

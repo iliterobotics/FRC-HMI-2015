@@ -24,12 +24,6 @@ public class SensorManager extends Manager {
 	}
 
 	@Override
-	public Node[] buildWidgets(int size) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
@@ -45,5 +39,11 @@ public class SensorManager extends Manager {
 	public void setData(Double newData) 
 	{
 		data.setValue(newData);
+	}
+
+	@Override
+	public Node[] buildWidgets(int width, int height) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

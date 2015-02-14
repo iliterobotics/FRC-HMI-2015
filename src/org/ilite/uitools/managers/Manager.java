@@ -13,7 +13,7 @@ public abstract class Manager {
 	public Manager(EData2015 eData){
 		dataType = eData;
 	}
-	public abstract Node[] buildWidgets(int size);
+	public abstract Node[] buildWidgets(int width, int height);
 	public abstract String getName();
 	public abstract String getDesc();
 	public abstract void setData(Double newData);
