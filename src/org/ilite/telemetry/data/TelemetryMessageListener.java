@@ -1,7 +1,7 @@
 package org.ilite.telemetry.data;
 
+import org.ilite.ui.diagnostics.ManagerDriver;
 import org.ilite.ui.table.TableManager;
-import org.ilite.ui.y2015.ManagerDriver;
 import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
 
 public interface TelemetryMessageListener 
