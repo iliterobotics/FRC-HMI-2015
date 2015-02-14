@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -36,13 +38,18 @@ public class Table {
 		stage.setTitle("RECYCLE RUSH 2015 UI");
 		stage.setWidth(800);
 		stage.setHeight(800);
+		VBox contents = new VBox();
 		ScrollPane s1 = new ScrollPane();
+		Text label = new Text("This is a simple table GUI... ");
+		label.setFont(new Font("Consolas", 50));
 		s1.setContent(pane);
+		s1.setFitToHeight(true);
+		s1.setFitToWidth(true);
+		s1.setMaxHeight(700);
+		s1.setMinWidth(500);
 		s1.setVbarPolicy(ScrollBarPolicy.ALWAYS);
-		s1.setVmax(440);
-		s1.setFitToHeight(false);
-		s1.setMaxSize(200, 1000);
-		((Group) scene.getRoot()).getChildren().add(s1);
+		contents.getChildren().addAll(label, s1);
+		((Group) scene.getRoot()).getChildren().addAll(contents);
 
 		stage.setScene(scene);
 		stage.show();
@@ -59,11 +66,16 @@ public class Table {
 	
 	public static void refreshTable(){
 		pane.setHgap(20);
+		pane.setVgap(4);
 		int counter = 0;
 		for(EData2015 data : EData2015.values()){
 			Text textNamePort = new Text("Port " + data.getPortNumber() + " " + (data.getDisplayLabel() != null ? data.getDisplayLabel() : data.getTelemetryType().name()));
+<<<<<<< HEAD
 			Text textValue = new Text(values.get(counter).doubleValue() + "");
 			Text textAverage = new Text(((Double.parseDouble(textAverage.getText()) + values.get(counter).doubleValue()) / group++) + "");
+=======
+			Text textValue = new Text("   =   " + values.get(counter).doubleValue());
+>>>>>>> 5426ba16ab7086a569c6be5373c3c7ba6cb8456c
 			pane.add(textNamePort, 0, counter);
 			pane.add(textValue, 1, counter);
 			counter++;
