@@ -3,7 +3,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 import org.ilite.telemetry.data.ServerConnector;
-import org.ilite.ui.table.Table;
+import org.ilite.ui.y2015.ViewBuilder;
 
 public class ApplicationMain extends Application
 {
@@ -11,7 +11,8 @@ public class ApplicationMain extends Application
 	public void start(Stage stage)
 	{
 		//UIBuilder.generateUI(stage);
-		Table.buildSimpleTable(stage);
+//		Table.buildSimpleTable(stage);
+		ViewBuilder.generateUI(stage);
 		
 		ServerConnector.getInstance();
 	}

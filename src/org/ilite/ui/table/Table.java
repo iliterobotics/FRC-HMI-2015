@@ -23,6 +23,9 @@ public class Table {
 	private static int group = 0;
 	
 	private static List<Double> values = new ArrayList<Double>();
+	
+	private static int counter = 0;
+	private static Text textAverage = new Text("0");
 
 	public static void buildSimpleTable(Stage stage){
 		for(int i = 0; i < EData2015.values().length; i++){
@@ -67,15 +70,10 @@ public class Table {
 	public static void refreshTable(){
 		pane.setHgap(20);
 		pane.setVgap(4);
-		int counter = 0;
 		for(EData2015 data : EData2015.values()){
 			Text textNamePort = new Text("Port " + data.getPortNumber() + " " + (data.getDisplayLabel() != null ? data.getDisplayLabel() : data.getTelemetryType().name()));
-<<<<<<< HEAD
 			Text textValue = new Text(values.get(counter).doubleValue() + "");
-			Text textAverage = new Text(((Double.parseDouble(textAverage.getText()) + values.get(counter).doubleValue()) / group++) + "");
-=======
-			Text textValue = new Text("   =   " + values.get(counter).doubleValue());
->>>>>>> 5426ba16ab7086a569c6be5373c3c7ba6cb8456c
+			textAverage = new Text(((Double.parseDouble(textAverage.getText()) + values.get(counter).doubleValue()) / group++) + "");
 			pane.add(textNamePort, 0, counter);
 			pane.add(textValue, 1, counter);
 			counter++;
