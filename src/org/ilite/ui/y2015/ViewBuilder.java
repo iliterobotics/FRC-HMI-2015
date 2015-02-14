@@ -18,11 +18,11 @@ public class ViewBuilder
 		
 		stage.setTitle("RECYCLE RUSH 2015");
 		stage.setWidth(screenSize.getWidth());
-		stage.setHeight(screenSize.getHeight()-200);
+		stage.setHeight(screenSize.getHeight()-215);
 
 		stage.setScene(scene);
 		stage.show();
-		stage.setFullScreen(true);
+//		stage.setFullScreen(true);
 		scene.setFill(Color.TRANSPARENT);
 	}
 }
