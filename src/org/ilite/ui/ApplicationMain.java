@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import org.ilite.ui.diagnostics.UIBuilder;
 import org.ilite.ui.y2015.ViewBuilder;
 public class ApplicationMain extends Application
 {
@@ -10,9 +11,9 @@ public class ApplicationMain extends Application
 	@Override
 	public void start(Stage stage)
 	{
-		//UIBuilder.generateUI(stage);
+		UIBuilder.generateUI(stage);
 //		Table.buildSimpleTable(stage);
-		ViewBuilder.generateUI(stage);
+		//ViewBuilder.generateUI(stage);
 
 //		UIBuilder.generateUI(stage);
 		

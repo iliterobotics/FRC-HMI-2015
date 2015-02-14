@@ -17,6 +17,11 @@
 	-fx-stroke: #C0C0C0;
 }
 
+.gaugeTest{
+	-fx-stroke-width: 5;
+	-fx-stroke: #C0C0C0;
+}
+
 .arrow{
 	-fx-background-color : #000000;
     -fx-stroke           : transparent;

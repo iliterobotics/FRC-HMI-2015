@@ -1,9 +1,15 @@
 package org.ilite.uitools.widget.gauge;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.geometry.Pos;
 import javafx.scene.control.SkinBase;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Polygon;
@@ -16,6 +22,9 @@ public class GaugeSkin extends SkinBase<Gauge> {
 	private Polygon arrow;
 	private Arc top;
 	private Rotate arrowRotate;
+	private StackPane mainPane;
+	
+	private List<Arc> overlays;
 	
 	private Text min;
 	private Text max;
@@ -29,6 +38,7 @@ public class GaugeSkin extends SkinBase<Gauge> {
 	}
 
 	private void initGraphics() {
+		mainPane = new StackPane();
 		top = new Arc();
 		top.setStartAngle(180.0f);
 		top.setLength(-180.0f);
@@ -43,7 +53,25 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		arrow.getTransforms().add(arrowRotate);
 		
 		min = new Text(getSkinnable().valueProperty.get() + "");
-		getChildren().addAll(top, arrow, min);
+		StackPane.setAlignment(top, Pos.CENTER);
+		mainPane.getChildren().add(top);
+		Stop[] stops = ((Gauge)getSkinnable()).getColorStops();
+		overlays = new ArrayList<Arc>();
+		if(stops != null && stops.length > 0){
+			for(int i = stops.length - 1; i >= 0; i --){
+				Arc arc = new Arc();
+				arc.setStartAngle(top.getStartAngle());
+				arc.setLength((stops[i].getOffset()) * -180);
+				arc.setType(ArcType.ROUND);
+				arc.getStyleClass().setAll("gaugeTest");
+				StackPane.setAlignment(arc, Pos.CENTER_LEFT);
+				arc.setFill(stops[i].getColor());
+				overlays.add(arc);
+			}
+		}
+		mainPane.getChildren().addAll(overlays);
+		mainPane.getChildren().addAll(arrow, min);
+		getChildren().add(mainPane);
 		
 		rotationAnimationTimeline = new Timeline();
 		
@@ -58,6 +86,13 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		top.setCenterY(radius);
 		top.setRadiusX(radius);
 		top.setRadiusY(radius);
+		for(Arc arc : overlays){
+			arc.setCenterX(radius);
+			arc.setCenterY(radius);
+			arc.setRadiusX(radius);
+			arc.setRadiusY(radius);
+			System.out.println(arc.getCenterX());
+		}
 
 		arrow.getPoints().addAll((width / 40.0), 0.0, 0.0, (radius * -1.0),
 				(width / -40.0), 0.0);

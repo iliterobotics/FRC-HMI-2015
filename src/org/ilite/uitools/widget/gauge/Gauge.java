@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Control;
 import javafx.scene.control.Skin;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Stop;
 
 public class Gauge extends Control {
 
@@ -18,6 +19,8 @@ public class Gauge extends Control {
 	DoubleProperty maxProperty;
 	double min;
 	DoubleProperty minProperty;
+	
+	private Stop[] colorStops;
 
 	public Gauge(DoubleProperty valueProp, int size, double min, double max) {
 		this.size = size;
@@ -34,6 +37,10 @@ public class Gauge extends Control {
 		valueProp.addListener(observable -> setValue(valueProp.get()));
 
 		init();
+	}
+	public Gauge(DoubleProperty valueProp, int size, double min, double max, Stop[] stops) {
+		this(valueProp, size, min, max);
+		colorStops = stops;
 	}
 
 	private void init() {
@@ -103,5 +110,8 @@ public class Gauge extends Control {
 		else if (VALUE > MAX_VALUE)
 			return MAX_VALUE;
 		else return VALUE;
+	}
+	public Stop[] getColorStops() {
+		return colorStops;
 	}
 }
