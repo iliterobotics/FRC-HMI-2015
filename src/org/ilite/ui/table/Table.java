@@ -18,6 +18,8 @@ public class Table {
 	
 	private static GridPane pane;
 	
+	private static int group = 0;
+	
 	private static List<Double> values = new ArrayList<Double>();
 
 	public static void buildSimpleTable(Stage stage){
@@ -61,6 +63,7 @@ public class Table {
 		for(EData2015 data : EData2015.values()){
 			Text textNamePort = new Text("Port " + data.getPortNumber() + " " + (data.getDisplayLabel() != null ? data.getDisplayLabel() : data.getTelemetryType().name()));
 			Text textValue = new Text(values.get(counter).doubleValue() + "");
+			Text textAverage = new Text(((Double.parseDouble(textAverage.getText()) + values.get(counter).doubleValue()) / group++) + "");
 			pane.add(textNamePort, 0, counter);
 			pane.add(textValue, 1, counter);
 			counter++;

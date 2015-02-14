@@ -1,4 +1,4 @@
-package org.ilite.ui.y2015;
+package org.ilite.ui.diagnostics;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;

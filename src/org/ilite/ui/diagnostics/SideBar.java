@@ -1,4 +1,4 @@
-package org.ilite.ui.y2015;
+package org.ilite.ui.diagnostics;
 
 import java.util.ArrayList;
 import java.util.List;
