@@ -111,50 +111,55 @@ public class UIManager {
 	private void updateWidgetPanels() {
 		focusPane.getChildren().removeAll(focusPane.getChildren());
 		int size = widgetPanels.size();
+		int devisor = size > 1 ? size > 4 ? 3 : 2 : 1;
 		switch (size) {
-		case 0:
-			break;
-		case 1:
-			focusPane.add(widgetPanels.get(0), 0, 0);
-			widgetPanels.get(0).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight());
-			break;
-		case 2:
-			focusPane.add(widgetPanels.get(0), 0, 0);
-			focusPane.add(widgetPanels.get(1), 0, 1);
-
-			widgetPanels.get(0).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(1).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			break;
-		case 3:
-			focusPane.add(widgetPanels.get(0), 0, 0);
-			focusPane.add(widgetPanels.get(1), 0, 1);
-			focusPane.add(widgetPanels.get(2), 1, 0);
-
-			widgetPanels.get(0).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(1).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(2).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			break;
-		case 4:
-			focusPane.add(widgetPanels.get(0), 0, 0);
-			focusPane.add(widgetPanels.get(1), 0, 1);
-			focusPane.add(widgetPanels.get(2), 1, 0);
-			focusPane.add(widgetPanels.get(3), 1, 1);
-
-			widgetPanels.get(0).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(1).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(2).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			widgetPanels.get(3).reMake((int) focusPane.getWidth(),
-					(int) focusPane.getHeight() >> 1);
-			break;
+			case 9:
+				focusPane.add(widgetPanels.get(8), 3, 3);
+				widgetPanels.get(8).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 8:
+				focusPane.add(widgetPanels.get(7), 2, 3);
+				widgetPanels.get(7).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 7:
+				focusPane.add(widgetPanels.get(6), 1, 3);
+				widgetPanels.get(6).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 6:
+				focusPane.add(widgetPanels.get(5), 3, 2);
+				widgetPanels.get(5).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 5:
+				focusPane.add(widgetPanels.get(4), 3, 1);
+				widgetPanels.get(4).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 4:
+				focusPane.add(widgetPanels.get(3), 2, 2);
+				widgetPanels.get(3).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 3:
+				focusPane.add(widgetPanels.get(2), 2, 1);
+				widgetPanels.get(2).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 2:
+				focusPane.add(widgetPanels.get(1), 1, 2);
+				widgetPanels.get(1).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+			case 1:
+				focusPane.add(widgetPanels.get(0), 1, 1);
+				widgetPanels.get(0).reMake(
+						(int) focusPane.getWidth() / devisor,
+						(int) focusPane.getHeight() / devisor);
+				break;
 		}
+		List<Manager> managers = new ArrayList<Manager>();
 	}
 }

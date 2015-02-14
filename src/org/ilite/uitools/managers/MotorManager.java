@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
 
 import org.ilite.telemetry.data.y2015.EData2015;
-import org.ilite.uitools.widget.chart.DataChart;
+import org.ilite.uitools.widget.chart.ScrollingChart;
 import org.ilite.uitools.widget.gauge.Gauge;
 
 public class MotorManager extends Manager {
@@ -20,11 +20,14 @@ public class MotorManager extends Manager {
 		return data;
 	}
 
-	@Override
-	public Node[] buildWidgets(int size) {
+	public Node[] buildWidgets(int width, int height) {
 		Node[] nodes = new Node[2];
-		nodes[0] = new Gauge(data, size, 0.0, 1.0);
-		nodes[1] = new DataChart(data, size);
+		nodes[0] = new Gauge(data, height, 0.0, 1.0);
+		nodes[1] = new ScrollingChart(data, width - height - 10, height, 0, 1);
+		
+		((ScrollingChart)nodes[1]).addPoint(0, 1.0);
+		((ScrollingChart)nodes[1]).addPoint(0, 0.0);
+		
 		setData(0.5);
 		return nodes;
 	}

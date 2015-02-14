@@ -76,7 +76,7 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		rotationAnimationTimeline.play();
 		
 		String currentString = current + "";
-		this.min.setText(currentString.substring(0, currentString.length() > 5? 5 : currentString.length()));
+		this.min.setText(currentString.substring(0, currentString.length() > 5 ? 5 : currentString.length()));
 	}
 	
 	private void addListeners(){

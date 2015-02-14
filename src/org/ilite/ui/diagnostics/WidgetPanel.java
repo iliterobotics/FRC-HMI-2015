@@ -16,6 +16,7 @@ public class WidgetPanel extends Pane{
 
 	private Manager manager;
 	private int height;
+	private int width;
 	
 	public WidgetPanel(Manager m){
 		manager = m;
@@ -26,10 +27,12 @@ public class WidgetPanel extends Pane{
 		
 		VBox main = new VBox();
 		main.setMaxSize(width, height);
+		main.setMinSize(width, height);
 		BorderPane top = new BorderPane();
 		top.setMaxSize(width, height / 5);
 		HBox widgetBox = new HBox();
-		widgetBox.setMaxSize(width, height / 3 * 5);
+		widgetBox.setMaxSize(width, height / 5 * 3);
+		widgetBox.setMinSize(width, height / 5 * 3);
 		Text titleText = new Text(manager.getName());
 		titleText.setFont(new Font(null, 20));
 		Text descriptionText = new Text(manager.getDesc());
@@ -53,6 +56,7 @@ public class WidgetPanel extends Pane{
 		main.getChildren().addAll(top, widgetBox, descriptionText);
 
 		this.height = height;
+		this.width = width;
 
 		getChildren().add(main);
 		
@@ -61,7 +65,7 @@ public class WidgetPanel extends Pane{
 	
 	public void buildWidgets(HBox box){
 		box.getChildren().removeAll(box.getChildren());
-		box.getChildren().addAll(manager.buildWidgets(height / 5 * 3));
+		box.getChildren().addAll(manager.buildWidgets(width, height / 5 * 2));
 	}
 	
 	public Manager getManager(){
