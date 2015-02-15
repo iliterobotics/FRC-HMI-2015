@@ -13,7 +13,7 @@ public class WidgetBar
 		widgetBar.setMinWidth(ViewBuilder.TOTAL_WIDTH-MainView.PANEL_WIDTH-AlignmentView.PANEL_WIDTH);
 		widgetBar.setMaxWidth(ViewBuilder.TOTAL_WIDTH-MainView.PANEL_WIDTH-AlignmentView.PANEL_HEIGHT);
 		widgetBar.setStyle("-fx-background-color: #00AA22;");
-		
+		widgetBar.getChildren().add(ManagerDriver.getManagerList().get(0).buildWidgets(100, 100)[0]);
 		return widgetBar;
 	}
 	

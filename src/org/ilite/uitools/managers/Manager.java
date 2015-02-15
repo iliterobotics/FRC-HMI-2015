@@ -8,7 +8,7 @@ import org.ilite.telemetry.data.y2015.EData2015;
 import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
 
 public abstract class Manager {
-	private EData2015 dataType;
+	protected EData2015 dataType;
 
 	public Manager(EData2015 eData){
 		dataType = eData;

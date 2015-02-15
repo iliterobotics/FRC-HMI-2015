@@ -87,12 +87,12 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		top.setRadiusX(radius);
 		top.setRadiusY(radius);
 		mainPane.setMaxHeight(radius);
+		mainPane.setMaxWidth(radius * 2);
 		for(Arc arc : overlays){
 			arc.setCenterX(radius);
 			arc.setCenterY(radius);
 			arc.setRadiusX(radius);
 			arc.setRadiusY(radius);
-			System.out.println(arc.getCenterX());
 		}
 
 		arrow.getPoints().addAll((width / 40.0), 0.0, 0.0, (radius * -1.0),

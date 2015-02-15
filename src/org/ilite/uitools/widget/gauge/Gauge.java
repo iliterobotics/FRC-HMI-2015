@@ -44,15 +44,15 @@ public class Gauge extends Control {
 	}
 
 	private void init() {
-		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent arg0) {
-				setValue( valueProperty.get() + 0.1 );
-				System.out.println(valueProperty.get());
-			}
-
-		});
+//		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//
+//			@Override
+//			public void handle(MouseEvent arg0) {
+//				setValue( valueProperty.get() + 0.1 );
+//				System.out.println(valueProperty.get());
+//			}
+//
+//		});
 
 		
 

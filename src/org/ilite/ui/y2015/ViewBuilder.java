@@ -20,6 +20,7 @@ public class ViewBuilder {
 	
 	
 	public static void generateUI(Stage stage) {
+		ManagerDriver.init();
 		buildBorderPane();
 		Scene scene = new Scene(borderPane);
 		scene.getStylesheets().addAll("/org/ilite/uitools/css/main.css",

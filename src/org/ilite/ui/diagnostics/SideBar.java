@@ -5,6 +5,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import org.ilite.ui.y2015.ManagerDriver;
 import org.ilite.uitools.managers.Manager;
 import org.ilite.uitools.widget.toggle.ToggleButton;
 
@@ -25,8 +26,8 @@ public class SideBar extends VBox{
 	}
 	
 	public Node buildTableElement(Manager m){
-		Text text = new Text("Motor 1");
-		text.setFont(new Font("Monaco", 20));
+		Text text = new Text(m.getName());
+		text.setFont(new Font("Monaco", 15));
 		ToggleButton button = new ToggleButton(text);
 		button.getActivatedValue().addListener(observable -> updatePanelStatus(m, button.getActivatedValue().get(), button));
 		return button;

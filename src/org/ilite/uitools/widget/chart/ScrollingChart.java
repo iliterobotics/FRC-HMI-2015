@@ -32,7 +32,8 @@ public class ScrollingChart extends Control {
 	}
 
 	private void init() {
-
+		addPoint(0, max);
+		addPoint(0, min);
 	}
 
 	public List<Double> getxVals() {

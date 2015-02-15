@@ -28,14 +28,14 @@ public class MotorManager extends Manager {
 		nodes[0] = new Gauge(data, height, 0.0, 1.0, stops);
 		nodes[1] = new ScrollingChart(data, width - height - 10, height, 0, 1);
 		
-		((ScrollingChart)nodes[1]).addPoint(0, 1.0);
-		((ScrollingChart)nodes[1]).addPoint(0, 0.0);
-		
 		setData(0.5);
 		return nodes;
 	}
 	public String getName(){
-		return "TEMP_NAME";
+		if(dataType == null || dataType.getDisplayLabel() == null){
+			return "Motor NULL NAME";
+		}
+		return "Motor " + dataType.getDisplayLabel();
 	}
 	public String getDesc(){
 		return "TEMP_DESC";
