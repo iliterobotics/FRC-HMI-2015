@@ -17,11 +17,11 @@ public class ApplicationMain extends Application
 
 //		UIBuilder.generateUI(stage);
 		
-		AudioClip beeper = new AudioClip("file:///D:/FRC%20GUI/frc-hmi/src/beep.mp3");
-		beeper.setVolume(1.0);
-//		beeper.setRate();
-		beeper.setCycleCount(5);
-		beeper.play();
+//		AudioClip beeper = new AudioClip("file:///D:/FRC%20GUI/frc-hmi/src/beep.mp3");
+//		beeper.setVolume(1.0);
+////		beeper.setRate();
+//		beeper.setCycleCount(5);
+//		beeper.play();
 		
 //		ServerConnector.getInstance();
 	}
