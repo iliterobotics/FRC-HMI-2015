@@ -24,7 +24,7 @@ public class MotorManager extends Manager {
 
 	public Node[] buildWidgets(int width, int height) {
 		Node[] nodes = new Node[2];
-		Stop[] stops = {new Stop(0.7, Color.RED), new Stop(1.0, Color.BLUE)};
+		Stop[] stops = {new Stop(0.33, Color.GREEN), new Stop(0.66, Color.YELLOW), new Stop(1.0, Color.RED)};
 		nodes[0] = new Gauge(data, height, 0.0, 1.0, stops);
 		nodes[1] = new ScrollingChart(data, width - height - 10, height, 0, 1);
 		

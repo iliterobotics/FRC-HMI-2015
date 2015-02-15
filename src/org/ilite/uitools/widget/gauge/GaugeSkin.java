@@ -64,7 +64,7 @@ public class GaugeSkin extends SkinBase<Gauge> {
 				arc.setLength((stops[i].getOffset()) * -180);
 				arc.setType(ArcType.ROUND);
 				arc.getStyleClass().setAll("gaugeTest");
-				StackPane.setAlignment(arc, Pos.CENTER_LEFT);
+				StackPane.setAlignment(arc, Pos.BOTTOM_LEFT);
 				arc.setFill(stops[i].getColor());
 				overlays.add(arc);
 			}
@@ -86,6 +86,7 @@ public class GaugeSkin extends SkinBase<Gauge> {
 		top.setCenterY(radius);
 		top.setRadiusX(radius);
 		top.setRadiusY(radius);
+		mainPane.setMaxHeight(radius);
 		for(Arc arc : overlays){
 			arc.setCenterX(radius);
 			arc.setCenterY(radius);
