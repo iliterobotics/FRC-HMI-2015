@@ -1,8 +1,11 @@
 package org.ilite.uitools.widget.toteLiftState;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.EventHandler;
 import javafx.scene.control.Control;
 import javafx.scene.control.Skin;
+import javafx.scene.input.MouseEvent;
 
 import org.ilite.uitools.widget.toteLiftState.skin.ToteLiftStateSkin;
 
@@ -16,16 +19,23 @@ public class ToteLiftState extends Control{
 	private IntegerProperty stateValue;
 	
 	private double size;
+	private boolean tote;
 	
-	public ToteLiftState(IntegerProperty data, double size){
+	public ToteLiftState(IntegerProperty data, double size, boolean tote){
+		if(data == null)
+			data = new SimpleIntegerProperty();
 		stateValue = data;
 		this.size = size;
+		this.tote = tote;
 		stateValue.addListener(observable -> updateSkin());
-		setOnMouseClicked(observable -> stateValue.set(stateValue.get() + 1));
 	}
 	
 	private void updateSkin(){
 		((ToteLiftStateSkin)getSkin()).updateImage(stateValue.get());
+	}
+	
+	public boolean isTote(){
+		return tote;
 	}
 	
 	public Skin<ToteLiftState> createDefaultSkin(){

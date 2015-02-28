@@ -11,17 +11,20 @@ import javafx.scene.layout.StackPane;
 import org.ilite.uitools.widget.toteLiftState.ToteLiftState;
 
 public class ToteLiftStateSkin extends SkinBase<ToteLiftState> implements Skin<ToteLiftState>{
+
+	private static final String totePicIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/totePic.png";
+	private static final String recycleIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/recycle.png";
 	
 	private static final String stopIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/stop.png";
-	private static final String resetIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/stop.png";
-	private static final String toteIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/stop.png";
-	private static final String raiseIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/stop.png";
-	private static final String lowerIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/stop.png";
+	private static final String resetIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/reset.png";
+	private static final String toteIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/tote.png";
+	private static final String raiseIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/up.png";
+	private static final String lowerIconPath = "/org/ilite/uitools/widget/toteLiftState/icons/down.png";
 	private static final String[] PATHS = {stopIconPath, resetIconPath, toteIconPath, raiseIconPath, lowerIconPath};
 	
 	private StackPane mainPane;
 	
-	private ImageView currentIcon;
+	private ImageView currentIcon, backIcon;
 	private Animation[] currentAnimations;
 	private Effect[] currentEffects;
 	
@@ -35,16 +38,20 @@ public class ToteLiftStateSkin extends SkinBase<ToteLiftState> implements Skin<T
 		mainPane.setMaxSize(width, height);
 		mainPane.setMinSize(width, height);
 		currentIcon = new ImageView(new Image(stopIconPath));
-		currentIcon.setFitHeight(height);
-		currentIcon.setFitWidth(width);
+		currentIcon.setFitHeight(height * (2.0 / 5));
+		currentIcon.setFitWidth(width  * (2.0 / 5));
 		
-		mainPane.getChildren().add(currentIcon);
+		backIcon = new ImageView(new Image( ((ToteLiftState)getSkinnable()).isTote() ? totePicIconPath : recycleIconPath));
+		backIcon.setFitHeight(height);
+		backIcon.setFitWidth(width);
+		
+		mainPane.getChildren().addAll(backIcon, currentIcon);
 		getChildren().add(mainPane);
-		updateImage(99);
+		updateImage(0);
 	}
 	
 	public void updateImage(int state){
-		String path = (state < PATHS.length && state > 0 ) ? PATHS[state] : "/org/ilite/uitools/widget/img/noimage.png";
+		String path = (state < PATHS.length && state >= 0 ) ? PATHS[state] : "/org/ilite/uitools/widget/img/noimg.png";
 		currentIcon.setImage(new Image(path));
 	}
 

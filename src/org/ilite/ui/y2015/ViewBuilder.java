@@ -11,13 +11,13 @@ import javafx.stage.Stage;
 
 public class ViewBuilder {
 
+	public static final double TOTAL_WIDTH = Screen.getPrimary()
+			.getVisualBounds().getWidth();
+	public static final double TOTAL_HEIGHT = Screen.getPrimary()
+			.getVisualBounds().getHeight();
 
-	public static final double TOTAL_WIDTH = Screen.getPrimary().getVisualBounds().getWidth();
-	public static final double TOTAL_HEIGHT = Screen.getPrimary().getVisualBounds().getHeight();
-	
 	private static BorderPane borderPane;
-	
-	
+
 	public static void generateUI(Stage stage) {
 		ManagerDriver.init();
 		buildBorderPane();
@@ -40,22 +40,22 @@ public class ViewBuilder {
 
 	public static void buildBorderPane() {
 		borderPane = new BorderPane();
-		
+
 		BorderPane mainPane = new BorderPane();
-//		StackPane mainView = MainView.generateMainView();
-//		StackPane alignmentView = AlignmentView.generateAlignmentView();
-		
+		// StackPane mainView = MainView.generateMainView();
+		// StackPane alignmentView = AlignmentView.generateAlignmentView();
+
 		mainPane.setLeft(MainView.generateMainView());
 		mainPane.setRight(AlignmentView.generateAlignmentView());
-		
+
 		borderPane.setCenter(mainPane);
 		borderPane.setLeft(WidgetBar.generateWidgets());
-		
+
 		StackPane pane = new StackPane();
 		HBox box = CommsBar.generateCommsBar();
-		pane.getChildren().add(box);		
+		pane.getChildren().add(box);
 		StackPane.setAlignment(box, Pos.CENTER_RIGHT);
-		
+
 		borderPane.setBottom(pane);
 		borderPane.setMinSize(TOTAL_WIDTH, TOTAL_HEIGHT);
 		borderPane.setMaxSize(TOTAL_WIDTH, TOTAL_HEIGHT);
