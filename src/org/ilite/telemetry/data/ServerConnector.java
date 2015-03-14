@@ -15,7 +15,7 @@ public class ServerConnector implements Runnable {
 	
 	public static ServerConnector getInstance()
 	{
-		if(serverConnector!=null)
+		if(serverConnector==null)
 		{
 			serverConnector = new ServerConnector();
 		}
@@ -51,7 +51,7 @@ public class ServerConnector implements Runnable {
 	{
 		ObjectInputStream clientInputStream = null;
 		try {
-			serverSocket = new Socket("team-1885.local", 4444);
+			serverSocket = new Socket("roboRIO-1885.local", 4444);
 
 			clientInputStream = new ObjectInputStream(
 					serverSocket.getInputStream());
@@ -61,7 +61,7 @@ public class ServerConnector implements Runnable {
 			{
 				msg = clientInputStream.readObject();
 
-				System.out.println(msg);
+//				System.out.println(msg);
 				TelemetryMessageListener.receivedMessage((TelemetryMessage)msg);
 			}
 		}

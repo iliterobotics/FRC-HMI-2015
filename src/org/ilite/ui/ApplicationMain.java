@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import org.ilite.telemetry.data.ServerConnector;
 import org.ilite.ui.diagnostics.UIBuilder;
 import org.ilite.ui.table.Table;
 import org.ilite.ui.y2015.ViewBuilder;
@@ -24,7 +25,8 @@ public class ApplicationMain extends Application
 //		beeper.setCycleCount(5);
 //		beeper.play();
 		
-//		ServerConnector.getInstance();
+		//ServerConnector.getInstance();
+		//ServerConnector.getInstance().startConnector();
 	}
 	
 	

@@ -11,11 +11,14 @@ import javafx.stage.Stage;
 
 public class ViewBuilder {
 
-	public static final double TOTAL_WIDTH = Screen.getPrimary()
-			.getVisualBounds().getWidth();
-	public static final double TOTAL_HEIGHT = Screen.getPrimary()
-			.getVisualBounds().getHeight();
+//	public static final double TOTAL_WIDTH = Screen.getPrimary()
+//			.getVisualBounds().getWidth();
+//	public static final double TOTAL_HEIGHT = Screen.getPrimary()
+//			.getVisualBounds().getHeight();
 
+	public static final double TOTAL_WIDTH = 800;
+	public static final double TOTAL_HEIGHT = 600;
+	
 	private static BorderPane borderPane;
 
 	public static void generateUI(Stage stage) {
@@ -45,11 +48,12 @@ public class ViewBuilder {
 		// StackPane mainView = MainView.generateMainView();
 		// StackPane alignmentView = AlignmentView.generateAlignmentView();
 
-		mainPane.setLeft(MainView.generateMainView());
-		mainPane.setRight(AlignmentView.generateAlignmentView());
+//		mainPane.setLeft(MainView.generateMainView());
+//		mainPane.setRight(AlignmentView.generateAlignmentView());
 
-		borderPane.setCenter(mainPane);
-		borderPane.setLeft(WidgetBar.generateWidgets());
+//		borderPane.setCenter(mainPane);
+		borderPane.setRight(AlignmentView.generateAlignmentView());
+//		borderPane.setLeft(WidgetBar.generateWidgets());
 
 		StackPane pane = new StackPane();
 		HBox box = CommsBar.generateCommsBar();
