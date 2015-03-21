@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
-import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
+import org.usfirst.frc.team1885.robot.comms.RobotInfoMessage;
 
 public class ServerConnector implements Runnable {
 	private Socket serverSocket;
@@ -62,7 +62,7 @@ public class ServerConnector implements Runnable {
 				msg = clientInputStream.readObject();
 
 //				System.out.println(msg);
-				TelemetryMessageListener.receivedMessage((TelemetryMessage)msg);
+				TelemetryMessageListener.receivedMessage((RobotInfoMessage)msg);
 			}
 		}
 		catch (IOException e) {		e.printStackTrace();	}

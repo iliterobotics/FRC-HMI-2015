@@ -12,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
 import org.ilite.uitools.widget.toteLiftState.ToteLiftState;
@@ -30,14 +29,13 @@ public class AlignmentView {
 	
 	private static StackPane alignmentView = new StackPane();
 
-	public static StackPane generateAlignmentView() {
-		alignmentView.setMinHeight(PANEL_HEIGHT);
-		alignmentView.setMaxHeight(PANEL_HEIGHT);
-		alignmentView.setMinWidth(PANEL_WIDTH);
-		alignmentView.setMaxWidth(PANEL_WIDTH);
+	public static StackPane generateAlignmentView(double width, double height) {
+		alignmentView.setMinHeight(width);
+		alignmentView.setMaxHeight(height);
+		alignmentView.setMinWidth(width);
+		alignmentView.setMaxWidth(height);
 		
 		GridPane icons = new GridPane();
-		icons.setMinSize(PANEL_WIDTH, PANEL_HEIGHT);
 
 		alignmentView.setBackground(new Background(new BackgroundFill(Color
 				.web("#FFFF00"), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -54,7 +52,6 @@ public class AlignmentView {
                 	swingPanel.setContent(alignmentOverlay);
                 }
             });
-			
 			alignmentView.getChildren().add(swingPanel);
 			
 		} catch (IOException e) {
@@ -62,8 +59,8 @@ public class AlignmentView {
 			e.printStackTrace();
 		}
 		
-		ToteLiftState toteState = new ToteLiftState(DriverStationDriver.getToteStateProperty(), 150, true);
-		ToteLiftState recycleState = new ToteLiftState(DriverStationDriver.getRecycleStateProperty(), 150, false);
+		ToteLiftState toteState = new ToteLiftState(DriverStationDriver.getToteStateProperty(), width / 5, true);
+		ToteLiftState recycleState = new ToteLiftState(DriverStationDriver.getRecycleStateProperty(), width / 5, false);
 
 //		StackPane.setAlignment(toteState, Pos.TOP_RIGHT);
 //		StackPane.setAlignment(recycleState, Pos.BOTTOM_LEFT);

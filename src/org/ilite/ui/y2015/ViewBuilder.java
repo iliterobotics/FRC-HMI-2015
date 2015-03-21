@@ -28,15 +28,13 @@ public class ViewBuilder {
 				"/org/ilite/ui/css/UIManager.css");
 
 		stage.setTitle("RECYCLE RUSH 2015");
-		stage.setWidth(TOTAL_WIDTH);
-		stage.setHeight(TOTAL_HEIGHT);
+		stage.setWidth(TOTAL_WIDTH * 0.7 + 15);
+		stage.setHeight(TOTAL_WIDTH * 0.7 + 25);
 
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);
-		stage.setX(0);
-		stage.setY(0);
-		// stage.setFullScreen(true);
+		//stage.setFullScreen(true);
 		scene.setFill(Color.TRANSPARENT);
 	}
 
@@ -51,16 +49,16 @@ public class ViewBuilder {
 //		mainPane.setRight(AlignmentView.generateAlignmentView());
 
 //		borderPane.setCenter(mainPane);
-		borderPane.setRight(AlignmentView.generateAlignmentView());
+		borderPane.setCenter(AlignmentView.generateAlignmentView(TOTAL_WIDTH * 0.7, TOTAL_WIDTH * 0.7));
 //		borderPane.setLeft(WidgetBar.generateWidgets());
 
 		StackPane pane = new StackPane();
 		HBox box = CommsBar.generateCommsBar();
 		pane.getChildren().add(box);
-		StackPane.setAlignment(box, Pos.CENTER_RIGHT);
+		StackPane.setAlignment(box, Pos.TOP_LEFT);
 
-		borderPane.setBottom(pane);
-		borderPane.setMinSize(TOTAL_WIDTH, TOTAL_HEIGHT);
-		borderPane.setMaxSize(TOTAL_WIDTH, TOTAL_HEIGHT);
+		//borderPane.setBottom(pane);
+		borderPane.setMinSize(TOTAL_WIDTH * 0.7, TOTAL_WIDTH * 0.7);
+		borderPane.setMaxSize(TOTAL_WIDTH * 0.7, TOTAL_WIDTH * 0.7);
 	}
 }

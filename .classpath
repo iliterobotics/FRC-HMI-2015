@@ -4,5 +4,10 @@
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/FRC 2015"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FRC-Robot"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FRC-Vision"/>
+	<classpathentry kind="lib" path="C:/Users/Michael/.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Michael/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar" sourcepath="C:/Users/Michael/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/677abe279b68c5e7490d6d50c6951376238d7d3e/log4j-1.2.17-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Michael/git/FRC-Vision/libraries/opencv/build/java/opencv-2410.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

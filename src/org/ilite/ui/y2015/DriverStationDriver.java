@@ -4,35 +4,35 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 import org.ilite.uitools.widget.toteLiftState.ToteLiftState;
-import org.usfirst.frc.team1885.robot.comms.TelemetryMessage;
+import org.usfirst.frc.team1885.robot.comms.RobotInfoMessage;
 
 public class DriverStationDriver {
 
 	private static IntegerProperty toteState = new SimpleIntegerProperty();
 	private static IntegerProperty recycleState = new SimpleIntegerProperty();
 
-	public static void update(TelemetryMessage msg) {
+	public static void update(RobotInfoMessage msg) {
 		int recycleStateInt = -1;
 		int toteStateInt = -1;
 		switch (msg.getRecycleBinState()) {
-			case UP:
+			case FORWARD:
 				toteStateInt = ToteLiftState.STATE_RAISING;
 				break;
-			case DOWN:
+			case REVERSE:
 				toteStateInt = ToteLiftState.STATE_LOWERING;
 				break;
-			case STOP:
+			case OFF:
 				toteStateInt = ToteLiftState.STATE_STOP;
 				break;
 		}
 		switch (msg.getToteState()) {
-			case UP:
+			case FORWARD:
 				toteStateInt = ToteLiftState.STATE_RAISING;
 				break;
-			case DOWN:
+			case REVERSE:
 				toteStateInt = ToteLiftState.STATE_LOWERING;
 				break;
-			case STOP:
+			case OFF:
 				toteStateInt = ToteLiftState.STATE_STOP;
 				break;
 		}

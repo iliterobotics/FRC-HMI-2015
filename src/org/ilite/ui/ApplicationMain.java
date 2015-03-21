@@ -29,5 +29,9 @@ public class ApplicationMain extends Application
 		//ServerConnector.getInstance().startConnector();
 	}
 	
+	public static void main(String[] args){
+		launch(args);
+	}
+	
 	
 }
