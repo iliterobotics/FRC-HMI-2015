@@ -6,7 +6,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class ViewBuilder {
@@ -22,7 +21,7 @@ public class ViewBuilder {
 	private static BorderPane borderPane;
 
 	public static void generateUI(Stage stage) {
-		ManagerDriver.init();
+		//ManagerDriver.init();
 		buildBorderPane();
 		Scene scene = new Scene(borderPane);
 		scene.getStylesheets().addAll("/org/ilite/uitools/css/main.css",

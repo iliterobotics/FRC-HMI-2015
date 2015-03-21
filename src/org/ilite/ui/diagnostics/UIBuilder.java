@@ -1,5 +1,7 @@
 package org.ilite.ui.diagnostics;
 
+import org.ilite.uitools.widget.claw3D.Claw3D;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -16,8 +18,8 @@ public class UIBuilder
 		stage.setWidth(800);
 		stage.setHeight(800);
 		UIManager uiManager = new UIManager();
-		((Group) scene.getRoot()).getChildren().add(uiManager.getMainPane());
-
+		//((Group) scene.getRoot()).getChildren().add(uiManager.getMainPane());
+		((Group) scene.getRoot()).getChildren().add(new Claw3D(null, null, null));
 		stage.setScene(scene);
 		stage.show();
 		stage.setFullScreen(true);

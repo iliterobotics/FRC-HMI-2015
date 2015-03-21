@@ -26,13 +26,13 @@ public class ManagerDriver {
 		elements.add(new SensorManager(null, 0, 10));
 	}
 	
-	public static void update(TelemetryMessage msg)
+	/*public static void update(TelemetryMessage msg)
 	{
 		for(Manager m : elements)
 		{
 			m.getUpdate(msg);
 		}
-	}
+	}*/
 	
 	public static List<Manager> getManagerList(){
 		return elements;

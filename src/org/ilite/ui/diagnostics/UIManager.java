@@ -82,9 +82,8 @@ public class UIManager {
 	public VBox buildSelectionHolder() {
 		selectionHolder = new SideBar(this);
 		selectionHolder.setMinWidth(200);
-		selectionHolder.getStyleClass().setAll(DEFAULT);
-		// TODO add list of selections
-		return selectionHolder;
+	    selectionHolder.getStyleClass().setAll(DEFAULT);
+		return new VBox();
 	}
 
 	public NotificationHolder buildNotificationHolder() {
